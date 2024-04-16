@@ -1,18 +1,19 @@
 @host = http://localhost:8080
 
 ###
+
 # Retrieve all users
 GET {{host}}/users
 Content-Type: application/json
 
 ###
 
-# Create a new user
-POST {{host}}/createUser
+# Login User
+
+POST {{host}}/login
 Content-Type: application/json
 
 {
-  "username": "newuser",
-  "email": "newuser@example.com",
-  "password": "securepassword123"
+  "email": "hixy@gmail.com",
+  "password": "HixyIs90!"
 }
