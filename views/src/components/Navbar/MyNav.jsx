@@ -27,7 +27,7 @@ const MyNav = () => {
         <li className={styles.navItem}><a href="/about">About</a></li>
         <li className={styles.navItem}><a href="/contact">Contact</a></li>
         <li className={styles.navItem}><a href="/login">Login</a></li>
-        <li className={styles.navItem}><a href="#" onClick={handleOpenModal}>Register</a></li>
+        <li className={styles.navItem}><a href='#' onClick={handleOpenModal} role="button">Register</a></li>
       </ul>
     </div>
     <RegModal isOpen={isModalOpen} onClose={handleCloseModal} />

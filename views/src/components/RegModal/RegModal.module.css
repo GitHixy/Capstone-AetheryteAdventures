@@ -11,6 +11,10 @@
     z-index: 1000;
 }
 
+h2 {
+    text-align: center;
+}
+
 .modal {
     background: #333; 
     color: #fff; 
@@ -74,7 +78,7 @@ input[type="file"]:hover {
 
 button {
     background-color: #f39d12a1; 
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     border: none;   
     padding: 10px 20px;
     border-radius: 5px;

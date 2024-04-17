@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv').config();
 const dbConnection = require('./config/dbConfig');
 const {cloudinaryConfig} = require('./config/cloudinaryConfig');
@@ -9,6 +10,7 @@ const loginRoutes = require('./routes/loginRoutes');
 const PORT = process.env.PORT || 8080;
 cloudinaryConfig();
 const app = express();
+app.use(cors());
 
 // Middleware
 
