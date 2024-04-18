@@ -40,7 +40,9 @@ const RegModal = ({ isOpen, onClose }) => {
 
     dispatch(createUser(userData));
     
+    setTimeout(() => {
       onClose();
+    }, 3500);
   
   };
 
