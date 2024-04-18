@@ -1,4 +1,14 @@
+@font-face {
+  font-family: 'Font.FF';
+  src: url('./customFont/OPTIEngeEtienne.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 html, body {
+  background-color: #000000b7;
+  font-family: 'Font.FF', sans-serif;
   margin: 0;
   padding: 0;
   height: 100%;

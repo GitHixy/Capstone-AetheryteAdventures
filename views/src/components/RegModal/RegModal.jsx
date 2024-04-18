@@ -4,6 +4,7 @@ import { createUser, resetUserState } from "../../redux/userSlice/userSlice";
 import styles from "./RegModal.module.css";
 import { toast } from "react-toastify";
 
+
 const RegModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
   const userStatus = useSelector((state) => state.user.status);
@@ -28,7 +29,7 @@ const RegModal = ({ isOpen, onClose }) => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const userData = {
       username,
@@ -38,7 +39,9 @@ const RegModal = ({ isOpen, onClose }) => {
     };
 
     dispatch(createUser(userData));
-    onClose();
+    
+      onClose();
+  
   };
 
   useEffect(() => {
@@ -106,7 +109,11 @@ const RegModal = ({ isOpen, onClose }) => {
             <input type="file" name="avatar" onChange={handleAvatarChange} />
           </label>
           <button type="submit" disabled={userStatus === "loading"}>
-            {userStatus === "loading" ? "Registering..." : "Register"}
+            {userStatus === "loading" ? (
+    "Registering..."
+  ) : (
+    "Register"
+  )}
           </button>
         </form>
       </div>

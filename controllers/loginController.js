@@ -35,7 +35,8 @@ const userLogin = async (req, res) => {
 
         res.header('Authorization', token).status(200).send({
             statusCode: 200,
-            token
+            token,
+            username: user.username,
         });
     } catch (e) {
         res.status(500).send({
