@@ -1,0 +1,12 @@
+.spinnerContainer {
+    margin-inline: auto;
+    width: fit-content;
+    width: 100%;
+    max-width: 250px;
+    z-index: 10000;
+}
+
+.spinnerImg{
+    width: 100%;
+    object-fit: cover;
+}
