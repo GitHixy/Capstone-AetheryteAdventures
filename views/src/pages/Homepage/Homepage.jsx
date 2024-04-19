@@ -12,28 +12,28 @@ const Homepage = () => {
   const {news, status, error} = useSelector(state => state.lodestone);
 
   useEffect(() => {
-    //dispatch(fetchNews())
+    dispatch(fetchNews())
   }, [dispatch]);
 
-  var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-  
-  fetch("https://na.lodestonenews.com/news/feed", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
 
   if (status === 'loading') return <LoadingSpinner />
   if (error) return <div>Error: {error}</div>
-
+console.log(news)
   return (
   <>
   <MyNav />
-  {news.map(item => (
-    <NewsCard />
-  ))}
+  {news.filter(item => item.image)
+     .slice(0, 10)
+     .map(item => (
+       <NewsCard key={item.id}
+                 title={item.title}
+                 description={item.description}
+                 category={item.category}
+                 image={item.image}
+                 time={item.time}
+                 url={item.url}
+       />
+))}
   <MyFooter />
   </>
 

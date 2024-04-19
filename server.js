@@ -6,6 +6,7 @@ const dbConnection = require('./config/dbConfig');
 const {cloudinaryConfig} = require('./config/cloudinaryConfig');
 const userRoutes = require('./routes/userRoutes');
 const loginRoutes = require('./routes/loginRoutes');
+const lodestoneNewsRoutes = require('./routes/lodestoneProxyRoutes');
 
 const PORT = process.env.PORT || 8080;
 cloudinaryConfig();
@@ -17,6 +18,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/', userRoutes);
 app.use('/', loginRoutes);
+app.use('/', lodestoneNewsRoutes);
 
 //Database Connection
 

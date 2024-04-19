@@ -4,15 +4,9 @@ import axios from 'axios';
 export const fetchNews = createAsyncThunk(
     '/fetchNews',
     async(_, {rejectWithValue}) => {
-        const config = {
-            method: 'get',            
-            maxBodyLength: Infinity,
-            url: process.env.REACT_APP_LODESTONE_NEWS,
-            headers: {}
-        };
         try {
-            const res = await axios(config);
-            return JSON.stringify(res.data);
+            const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/news`);
+            return res.data;
         } catch (e) {
             return rejectWithValue(e.message);
         }
