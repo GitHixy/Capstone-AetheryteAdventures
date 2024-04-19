@@ -12,10 +12,18 @@ const Homepage = () => {
   const {news, status, error} = useSelector(state => state.lodestone);
 
   useEffect(() => {
-    dispatch(fetchNews())
+    //dispatch(fetchNews())
   }, [dispatch]);
 
-  console.log(news)
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+  
+  fetch("https://na.lodestonenews.com/news/feed", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 
   if (status === 'loading') return <LoadingSpinner />
   if (error) return <div>Error: {error}</div>
