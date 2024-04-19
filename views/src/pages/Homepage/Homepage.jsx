@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
+import styles from './Homepage.module.css';
 import MyNav from "../../components/Navbar/MyNav";
+import Sidebar from "../../components/Sidebar/Sidebar";
 import MyFooter from "../../components/Footer/MyFooter";
 import NewsCard from "../../components/NewsCard/NewsCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
@@ -22,8 +24,12 @@ console.log(news)
   return (
   <>
   <MyNav />
+  <Sidebar />
+  <h2 className={styles.newsTitle}>- Latest News from The Lodestone -</h2>
+  <div className={styles.container}>
+    
   {news.filter(item => item.image)
-     .slice(0, 10)
+     .slice(0, 3)
      .map(item => (
        <NewsCard key={item.id}
                  title={item.title}
@@ -34,6 +40,7 @@ console.log(news)
                  url={item.url}
        />
 ))}
+</div>
   <MyFooter />
   </>
 

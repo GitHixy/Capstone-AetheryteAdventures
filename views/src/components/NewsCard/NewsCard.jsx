@@ -3,6 +3,7 @@ import styles from './NewsCard.module.css';
 
 const NewsCard = ({ id, url, title, time, image, description, category }) => {
   return (
+    
     <div className={styles.card}>
       <img src={image} alt={title} className={styles.image} />
       <div className={styles.content}>
@@ -17,10 +18,12 @@ const NewsCard = ({ id, url, title, time, image, description, category }) => {
           </a>
         </h2>
         <p className={styles.date}>{new Date(time).toLocaleDateString()}</p>
-        <span className={styles.category}>{category}</span>
+        
         <p className={styles.description}>{description}</p>
+        <span className={styles.category}>{category}</span>
       </div>
     </div>
+    
   );
 };
 

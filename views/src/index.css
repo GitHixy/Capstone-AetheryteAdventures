@@ -6,7 +6,7 @@
 }
 
 html, body {
-  background-color: #000000b7;
+  
   font-family: 'Font.FF', sans-serif;
   margin: 0;
   padding: 0;
@@ -15,6 +15,7 @@ html, body {
 }
 
 #root {
+  background: linear-gradient(180deg, #090913 0%, #181831 100%);
   display: flex;
   flex-direction: column;
   min-height: 100vh; 

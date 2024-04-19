@@ -33,7 +33,7 @@ const MyNav = () => {
   };
   
   useEffect(() => {
-    console.log("Token:", token, "Username:", username);
+    
   }, [token]);
 
   return (
@@ -53,11 +53,14 @@ const MyNav = () => {
         <li className={styles.navItem}><a href="/about">About</a></li>
         <li className={styles.navItem}><a href="/contact">Contact</a></li>
         {!token ? (
-              <>
+              <> 
+              
                 <li className={styles.navItem} ><a href="#" id={styles.specialBtn} onClick={handleLoginOpenModal} role="button">Login</a></li>
-                <li className={styles.navItem} ><a href="#" id={styles.specialBtn} onClick={handleRegOpenModal} role="button">Register</a></li>
+                
+                 <li className={styles.navItem} ><a href="#" id={styles.specialBtn} onClick={handleRegOpenModal} role="button">Register</a></li>
               </>
             ) : (
+              
               <li className={styles.navItem} ><a href="#" id={styles.specialBtn} onClick={handleLogout}>Logout</a></li>
             )}
       </ul>
