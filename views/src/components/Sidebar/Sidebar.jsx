@@ -19,7 +19,7 @@ function Sidebar() {
                         <li><a href="#">Mounts</a></li>
                         <li><a href="#">Minions</a></li>
                         <li><a href="#">Orchestrions</a></li>
-                        <li><a href="#">Triad Cards</a></li>
+                        <li><a href="#">TriadCards</a></li>
                         <li><a href="#">Emotes</a></li>
                     </ul>
                 </div>

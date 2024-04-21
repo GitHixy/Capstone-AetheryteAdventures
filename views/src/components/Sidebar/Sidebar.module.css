@@ -3,7 +3,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    transition: width 0.5s ease;
+    transition: width 1s ease, opacity 1.5s ease;
     overflow: hidden;
     z-index: 1000;
     border-right: 3px solid #f8f8f8;
@@ -11,9 +11,11 @@
 }
 
 .sidebarClosed {
-    width: 50px;
+    width: 25px;
     background: linear-gradient(180deg, #090913 0%, #343467 100%);
     color: #ccc;
+    opacity: 0.5;
+    
 }
 
 .sidebarOpen {
@@ -36,6 +38,7 @@
     padding: 10px;
     border-radius: 0 5px 5px 0;
 }
+
 
 .title {
     font-family: 'Garamond', serif;

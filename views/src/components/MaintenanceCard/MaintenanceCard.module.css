@@ -1,6 +1,6 @@
 .card {
     border: 1px solid #ddd;
-    margin: 10px; 
+    margin: 10px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -14,63 +14,35 @@
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
-
-.image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.image:hover {
-    transform: scale(1.05);
-}
-
-.content {
-    text-align: center;
-}
-
 .title {
     margin: 15px 0;
     font-size: 1.5rem;
     color: #1a237e; 
-}
-
-.link {
-    color: #1a237e; 
-    text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-.link:hover {
-    text-decoration: underline;
-    color: #5c6bc0;
-}
-
-.description {
-    color: #333;
-    font-size: 1rem;
-    margin-bottom: 10px;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
 }
 
 .date {
     color: #666;
     font-size: 0.85rem;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
-.category {
-    background-color: #e8eaf6;
+.link {
+    text-decoration: none;
     color: #3f51b5;
     border-radius: 50px;
-    padding: 5px 15px;
-    display: inline-block;
+    padding: 3px ;
     margin-top: 5px;
     transition: transform 0.3s ease;
+    display: block;
+    text-align: center;
+    margin-inline: auto;
 }
 
-.category:hover {
-    transform: translateY(-3px) scale(1.1);
+.link:hover {
+    transform: translateY(-3px) scale(1.05);
 }
 
 @keyframes fadeIn {
@@ -84,15 +56,10 @@
     }
 }
 
-.title, .description {
-    animation: fadeIn 0.8s ease-out;
-}
-
-
-/* Media Queries */
+/* Responsive Design */
 @media (max-width: 1200px) {
     .card {
-        width: 60%;
+        width: 60%; 
     }
 }
 
@@ -104,6 +71,6 @@
 
 @media (max-width: 500px) {
     .card {
-width: 60%;
+        width: 60%;
     }
 }

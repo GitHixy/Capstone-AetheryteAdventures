@@ -96,10 +96,7 @@
 
 /* Media Queries */
 
-@media (max-width: 768px) {
-  .navbar {
-    padding: 0.5rem;
-  }
+@media (max-width: 800px) {
 
   .navLinks {
     width: 25%;
