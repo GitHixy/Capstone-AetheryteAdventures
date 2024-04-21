@@ -22,7 +22,7 @@ const Homepage = () => {
 
   if (status === 'loading') return <LoadingSpinner />
   if (error) return <div>Error: {error}</div>
-console.log(news)
+
   return (
   <>
   <MyNav />

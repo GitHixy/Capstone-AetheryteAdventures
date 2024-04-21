@@ -11,7 +11,7 @@
 }
 
 .sidebarClosed {
-    width: 25px;
+    width: 30px;
     background: linear-gradient(180deg, #090913 0%, #343467 100%);
     color: #ccc;
     opacity: 0.5;
@@ -19,7 +19,7 @@
 }
 
 .sidebarOpen {
-    width: 250px;
+    width: 200px;
     background: linear-gradient(180deg, #090913 0%, #1a1a3d 100%);
     color: #fff;
 }
@@ -27,13 +27,13 @@
 .toggleButton {
     display: block;
     position: absolute;
-    top: 10px;
+    top: 50%;
     left: 100%;
     transform: translateX(-100%);
     background: #2a2e40;
     border: none;
     color: white;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
     padding: 10px;
     border-radius: 0 5px 5px 0;

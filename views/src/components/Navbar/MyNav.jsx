@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { logout as logoutAction } from '../../redux/loginSlice/loginSlice';
 import { useAuth } from '../../customHooks/useAuth';
 import { toast } from 'react-toastify';
@@ -13,7 +14,7 @@ const MyNav = () => {
   const dispatch = useDispatch();
   const [isRegModalOpen, setRegModalOpen] = useState(false);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
-  
+  const navigate = useNavigate();
 
   const handleRegOpenModal = (e) => {
     e.preventDefault();
@@ -32,6 +33,10 @@ const MyNav = () => {
     toast.success('You Have Logged Out!');
   };
   
+  const aboutRedirect = () => {
+    navigate('/about');
+  }
+
   useEffect(() => {
     
   }, [token]);
@@ -50,8 +55,8 @@ const MyNav = () => {
     <div className={styles.navLinks}>
       <ul className={styles.navList}>
         <li className={styles.navItem}><a href="/">Home</a></li>
-        <li className={styles.navItem}><a href="/about">About</a></li>
-        <li className={styles.navItem}><a href="/contact">Contact</a></li>
+        <li className={styles.navItem}><a href="#" onClick={aboutRedirect} >About</a></li>
+        
         {!token ? (
               <> 
               

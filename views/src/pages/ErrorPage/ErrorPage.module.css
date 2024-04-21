@@ -1,0 +1,31 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+    color: #ffffff;
+    background-color: #1a1a3d;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.title {
+    font-size: 36px;
+    color: #f39c12;
+}
+
+.message {
+    font-size: 18px;
+    color: #f39c12;
+}
+
+.link {
+    padding: 10px 20px;
+    background-color: #4c00829a; 
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.link:hover {
+    background-color: #9932cc; 
+}
