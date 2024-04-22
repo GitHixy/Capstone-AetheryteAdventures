@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import TitlesPage from "./pages/TitlesPage/TitlesPage";
+import MountsPage from "./pages/MountsPage/MountsPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./customCSS/toastsMod.css";
@@ -24,7 +26,9 @@ function App() {
 
       <Routes>
         <Route exact path="/" element={<Homepage />} />
-        <Route path="about" element={<AboutPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/titles" element={<TitlesPage />} />
+        <Route path="/mounts" element={<MountsPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>
