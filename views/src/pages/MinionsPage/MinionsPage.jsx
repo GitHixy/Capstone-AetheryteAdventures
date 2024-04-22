@@ -1,38 +1,42 @@
 import React, { useEffect, useState } from "react";
 import MyNav from "../../components/Navbar/MyNav";
 import MyFooter from "../../components/Footer/MyFooter";
-import TitleCard from "../../components/TitleCard/TitleCard";
+import MinionCard from "../../components/MinionCard/MinionCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchTitles } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
+import { fetchMinions } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
 import useResponsivePages from "../../customHooks/useResponsivePages";
 import usePagination from "../../customHooks/usePagination";
-import styles from "./TitlesPage.module.css";
+import styles from "./MinionsPage.module.css";
 
-const TitlesPage = () => {
+const MinionsPage = () => {
     const dispatch = useDispatch();
-    const { data: titles, status, error } = useSelector((state) => state.titles);
+    const { data: minions, status, error } = useSelector((state) => state.minions);
     const [searchTerm, setSearchTerm] = useState('');
     const resultsPerPage = useResponsivePages(8);
-    const totalResults = titles?.results ?? [];
-    const filteredTitles = searchTerm
-      ? totalResults.filter(title =>
-          title.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    const totalResults = minions?.results ?? [];
+    const filteredMinions = searchTerm
+      ? totalResults.filter(minion =>
+          minion.name.toLowerCase().includes(searchTerm.toLowerCase()))
       : totalResults;
 
-    const { currentPage, renderPaginationControls } = usePagination(filteredTitles.length, resultsPerPage);
-
+    const { currentPage, renderPaginationControls } = usePagination(filteredMinions.length, resultsPerPage);
+    
     useEffect(() => {
-        dispatch(fetchTitles());
+        dispatch(fetchMinions());
     }, [dispatch]);
 
     useEffect(() => {
     
-    }, [filteredTitles.length]);
+    }, [filteredMinions.length]);
 
-    const indexOfLastTitle = currentPage * resultsPerPage;
-    const indexOfFirstTitle = indexOfLastTitle - resultsPerPage;
-    const currentTitles = filteredTitles.slice(indexOfFirstTitle, indexOfLastTitle);
+    
+    
+
+    const indexOfLastMinion = currentPage * resultsPerPage;
+    const indexOfFirstMinion = indexOfLastMinion - resultsPerPage;
+    const currentMinions = filteredMinions.slice(indexOfFirstMinion, indexOfLastMinion);
+    
 
     return (
         <>
@@ -40,10 +44,11 @@ const TitlesPage = () => {
             <div className={styles.container}>
                 <input
                     type="text"
-                    placeholder="Search Titles by name..."
+                    placeholder="Search minions by name..."
                     value={searchTerm}
                     onChange={(e) => {
                         setSearchTerm(e.target.value);
+                    
                     }}
                     className={styles.searchBar}
                 />
@@ -51,21 +56,21 @@ const TitlesPage = () => {
                 {status === "failed" && <p>Error: {error}</p>}
                 {status === "succeeded" && totalResults.length > 0 && (
                     <>
-                        <div className={styles.titlesGrid}>
-                            {currentTitles.map((title) => (
-                                <TitleCard key={title.id} title={title} />
+                        <div className={styles.minionsGrid}>
+                            {currentMinions.map((minion) => (
+                                <MinionCard key={minion.id} minion={minion} />
                             ))}
                         </div>
                         <div className={styles.pagination}>
-                            {renderPaginationControls()}
+                        {renderPaginationControls()}
                         </div>
                     </>
                 )}
-                {status === "succeeded" && totalResults.length === 0 && <p>No titles found.</p>}
+                {status === "succeeded" && totalResults.length === 0 && <p>No minions found.</p>}
             </div>
             <MyFooter />
         </>
     );
 };
 
-export default TitlesPage;
+export default MinionsPage;

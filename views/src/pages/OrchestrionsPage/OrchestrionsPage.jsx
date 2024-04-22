@@ -1,38 +1,42 @@
 import React, { useEffect, useState } from "react";
 import MyNav from "../../components/Navbar/MyNav";
 import MyFooter from "../../components/Footer/MyFooter";
-import TitleCard from "../../components/TitleCard/TitleCard";
+import OrchestrionCard from "../../components/OrchestrionCard/OrchestrionCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchTitles } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
+import { fetchOrchestrions } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
 import useResponsivePages from "../../customHooks/useResponsivePages";
 import usePagination from "../../customHooks/usePagination";
-import styles from "./TitlesPage.module.css";
+import styles from "./OrchestrionsPage.module.css";
 
-const TitlesPage = () => {
+const OrchestrionsPage = () => {
     const dispatch = useDispatch();
-    const { data: titles, status, error } = useSelector((state) => state.titles);
+    const { data: orchestrions, status, error } = useSelector((state) => state.orchestrions);
     const [searchTerm, setSearchTerm] = useState('');
     const resultsPerPage = useResponsivePages(8);
-    const totalResults = titles?.results ?? [];
-    const filteredTitles = searchTerm
-      ? totalResults.filter(title =>
-          title.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    const totalResults = orchestrions?.results ?? [];
+    const filteredOrchestrions = searchTerm
+      ? totalResults.filter(orchestrion =>
+          orchestrion.name.toLowerCase().includes(searchTerm.toLowerCase()))
       : totalResults;
 
-    const { currentPage, renderPaginationControls } = usePagination(filteredTitles.length, resultsPerPage);
+      const { currentPage, renderPaginationControls } = usePagination(filteredOrchestrions.length, resultsPerPage);
 
     useEffect(() => {
-        dispatch(fetchTitles());
+        dispatch(fetchOrchestrions());
     }, [dispatch]);
 
     useEffect(() => {
-    
-    }, [filteredTitles.length]);
+        
+    }, [filteredOrchestrions.length]);
 
-    const indexOfLastTitle = currentPage * resultsPerPage;
-    const indexOfFirstTitle = indexOfLastTitle - resultsPerPage;
-    const currentTitles = filteredTitles.slice(indexOfFirstTitle, indexOfLastTitle);
+
+
+    const indexOfLastOrchestrion = currentPage * resultsPerPage;
+    const indexOfFirstOrchestrion = indexOfLastOrchestrion - resultsPerPage;
+    const currentOrchestrions = filteredOrchestrions.slice(indexOfFirstOrchestrion, indexOfLastOrchestrion);
+
+
 
     return (
         <>
@@ -40,10 +44,11 @@ const TitlesPage = () => {
             <div className={styles.container}>
                 <input
                     type="text"
-                    placeholder="Search Titles by name..."
+                    placeholder="Search Orchestrions by name..."
                     value={searchTerm}
                     onChange={(e) => {
                         setSearchTerm(e.target.value);
+                          
                     }}
                     className={styles.searchBar}
                 />
@@ -51,9 +56,9 @@ const TitlesPage = () => {
                 {status === "failed" && <p>Error: {error}</p>}
                 {status === "succeeded" && totalResults.length > 0 && (
                     <>
-                        <div className={styles.titlesGrid}>
-                            {currentTitles.map((title) => (
-                                <TitleCard key={title.id} title={title} />
+                        <div className={styles.orchestrionsGrid}>
+                            {currentOrchestrions.map((orchestrion) => (
+                                <OrchestrionCard key={orchestrion.id} orchestrion={orchestrion} />
                             ))}
                         </div>
                         <div className={styles.pagination}>
@@ -61,11 +66,11 @@ const TitlesPage = () => {
                         </div>
                     </>
                 )}
-                {status === "succeeded" && totalResults.length === 0 && <p>No titles found.</p>}
+                {status === "succeeded" && totalResults.length === 0 && <p>No orchestrions found.</p>}
             </div>
             <MyFooter />
         </>
     );
 };
 
-export default TitlesPage;
+export default OrchestrionsPage;

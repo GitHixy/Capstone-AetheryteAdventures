@@ -1,38 +1,43 @@
 import React, { useEffect, useState } from "react";
 import MyNav from "../../components/Navbar/MyNav";
 import MyFooter from "../../components/Footer/MyFooter";
-import TitleCard from "../../components/TitleCard/TitleCard";
+import TriadCard from "../../components/TriadCardsCard/TriadCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchTitles } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
+import { fetchTriadCards } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
 import useResponsivePages from "../../customHooks/useResponsivePages";
 import usePagination from "../../customHooks/usePagination";
-import styles from "./TitlesPage.module.css";
+import styles from "./TriadCardsPage.module.css";
 
-const TitlesPage = () => {
+
+const TriadCardsPage = () => {
     const dispatch = useDispatch();
-    const { data: titles, status, error } = useSelector((state) => state.titles);
+    const { data: triadCards, status, error } = useSelector((state) => state.triadCards);
     const [searchTerm, setSearchTerm] = useState('');
     const resultsPerPage = useResponsivePages(8);
-    const totalResults = titles?.results ?? [];
-    const filteredTitles = searchTerm
-      ? totalResults.filter(title =>
-          title.name.toLowerCase().includes(searchTerm.toLowerCase()))
+    const totalResults = triadCards?.results ?? [];
+    const filteredTriadCards = searchTerm
+      ? totalResults.filter(triadCards =>
+          triadCards.name.toLowerCase().includes(searchTerm.toLowerCase()))
       : totalResults;
 
-    const { currentPage, renderPaginationControls } = usePagination(filteredTitles.length, resultsPerPage);
+      const { currentPage, renderPaginationControls } = usePagination(filteredTriadCards.length, resultsPerPage);
 
     useEffect(() => {
-        dispatch(fetchTitles());
+        dispatch(fetchTriadCards());
     }, [dispatch]);
 
     useEffect(() => {
-    
-    }, [filteredTitles.length]);
+        
+    }, [filteredTriadCards.length]);
 
-    const indexOfLastTitle = currentPage * resultsPerPage;
-    const indexOfFirstTitle = indexOfLastTitle - resultsPerPage;
-    const currentTitles = filteredTitles.slice(indexOfFirstTitle, indexOfLastTitle);
+
+
+    const indexOfLastTriadCards = currentPage * resultsPerPage;
+    const indexOfFirstTriadCards = indexOfLastTriadCards - resultsPerPage;
+    const currentTriadCards = filteredTriadCards.slice(indexOfFirstTriadCards, indexOfLastTriadCards);
+
+
 
     return (
         <>
@@ -40,10 +45,11 @@ const TitlesPage = () => {
             <div className={styles.container}>
                 <input
                     type="text"
-                    placeholder="Search Titles by name..."
+                    placeholder="Search Triad Cards by name..."
                     value={searchTerm}
                     onChange={(e) => {
                         setSearchTerm(e.target.value);
+                          
                     }}
                     className={styles.searchBar}
                 />
@@ -51,9 +57,9 @@ const TitlesPage = () => {
                 {status === "failed" && <p>Error: {error}</p>}
                 {status === "succeeded" && totalResults.length > 0 && (
                     <>
-                        <div className={styles.titlesGrid}>
-                            {currentTitles.map((title) => (
-                                <TitleCard key={title.id} title={title} />
+                        <div className={styles.triadCardsGrid}>
+                            {currentTriadCards.map((triadCard) => (
+                                <TriadCard key={triadCard.id} triadCard={triadCard} />
                             ))}
                         </div>
                         <div className={styles.pagination}>
@@ -61,11 +67,11 @@ const TitlesPage = () => {
                         </div>
                     </>
                 )}
-                {status === "succeeded" && totalResults.length === 0 && <p>No titles found.</p>}
+                {status === "succeeded" && totalResults.length === 0 && <p>No triad cards found.</p>}
             </div>
             <MyFooter />
         </>
     );
 };
 
-export default TitlesPage;
+export default TriadCardsPage;
