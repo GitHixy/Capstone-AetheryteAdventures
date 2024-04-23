@@ -3,6 +3,7 @@ import MyNav from "../../components/Navbar/MyNav";
 import MyFooter from "../../components/Footer/MyFooter";
 import OrchestrionCard from "../../components/OrchestrionCard/OrchestrionCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import Sidebar from '../../components/Sidebar/Sidebar';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchOrchestrions } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
 import useResponsivePages from "../../customHooks/useResponsivePages";
@@ -41,6 +42,7 @@ const OrchestrionsPage = () => {
     return (
         <>
             <MyNav />
+            <Sidebar />
             <div className={styles.container}>
                 <input
                     type="text"

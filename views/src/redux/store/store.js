@@ -3,6 +3,7 @@ import userReducer from "../userSlice/userSlice";
 import loginReducer from "../loginSlice/loginSlice";
 import lodestoneReducer from "../lodestoneSlice/lodestoneSlice";
 import loreReducer from "../loreGenSlice/loreGenSlice";
+import characterReducer from "../characterSlice/characterSlice";
 import {
   achievementsSlice,
   minionsSlice,
@@ -26,5 +27,6 @@ export const store = configureStore({
     emotes: emotesSlice.reducer,
     mounts: mountsSlice.reducer,
     lore: loreReducer,
+    character: characterReducer,
   },
 });

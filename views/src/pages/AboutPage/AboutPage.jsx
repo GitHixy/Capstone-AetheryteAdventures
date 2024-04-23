@@ -2,10 +2,12 @@ import React from 'react';
 import styles from './AboutPage.module.css'; 
 import MyNav from '../../components/Navbar/MyNav';
 import MyFooter from '../../components/Footer/MyFooter';
+import Sidebar from '../../components/Sidebar/Sidebar';
 const AboutPage = () => {
     return (
         <>
         <MyNav />
+        <Sidebar/>
         <div className={styles.container}>
         <h1 className={styles.title}>The Chronicles of Aetheryte Adventures</h1>
             <p className={styles.text}>

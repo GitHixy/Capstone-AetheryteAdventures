@@ -5,7 +5,7 @@
     border-radius: 12px; 
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
     text-align: center;
-    width: 400px;
+    width: 30%;
     margin: 30px auto;
     
 }
@@ -112,4 +112,16 @@
 
 .container, .disclaimer, .genTitle {
     animation: fadeIn 2s ease-in-out;
+}
+
+@media (max-width: 800px) {
+    .container {
+        width: 40%; 
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        width: 40%;
+    }
 }

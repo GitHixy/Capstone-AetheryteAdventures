@@ -3,6 +3,7 @@ import MyNav from "../../components/Navbar/MyNav";
 import MyFooter from "../../components/Footer/MyFooter";
 import TitleCard from "../../components/TitleCard/TitleCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import Sidebar from '../../components/Sidebar/Sidebar';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchTitles } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
 import useResponsivePages from "../../customHooks/useResponsivePages";
@@ -37,6 +38,7 @@ const TitlesPage = () => {
     return (
         <>
             <MyNav />
+            <Sidebar />
             <div className={styles.container}>
                 <input
                     type="text"

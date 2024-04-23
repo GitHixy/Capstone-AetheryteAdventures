@@ -3,6 +3,7 @@ import MyNav from "../../components/Navbar/MyNav";
 import MyFooter from "../../components/Footer/MyFooter";
 import MinionCard from "../../components/MinionCard/MinionCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import Sidebar from '../../components/Sidebar/Sidebar';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMinions } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
 import useResponsivePages from "../../customHooks/useResponsivePages";
@@ -41,10 +42,11 @@ const MinionsPage = () => {
     return (
         <>
             <MyNav />
+            <Sidebar />
             <div className={styles.container}>
                 <input
                     type="text"
-                    placeholder="Search minions by name..."
+                    placeholder="Search Minions by name..."
                     value={searchTerm}
                     onChange={(e) => {
                         setSearchTerm(e.target.value);

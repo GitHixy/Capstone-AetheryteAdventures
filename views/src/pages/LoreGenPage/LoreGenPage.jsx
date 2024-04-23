@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MyNav from '../../components/Navbar/MyNav';
 import MyFooter from '../../components/Footer/MyFooter';
+import Sidebar from '../../components/Sidebar/Sidebar';
 import { useDispatch, useSelector } from "react-redux";
 import { generateLore, resetLore } from "../../redux/loreGenSlice/loreGenSlice";
 import styles from "./LoreGenPage.module.css";
@@ -32,6 +33,7 @@ const LoreGenPage = () => {
   return (
     <>
     <MyNav/>
+    <Sidebar/>
     <h2 className={styles.genTitle}>- Generate Your Lore -</h2>
     <div className={styles.container}>
     <form onSubmit={handleSubmit} className={styles.form}>

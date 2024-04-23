@@ -3,7 +3,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    transition: width 1s ease, opacity 1.5s ease;
+    transition: left 0.5s ease;
     overflow: hidden;
     z-index: 1000;
     border-right: 3px solid #f8f8f8;
@@ -11,12 +11,14 @@
 }
 
 .sidebarClosed {
-    width: 50px;
+    left: -180px; 
+    width: 180px; 
     background: linear-gradient(180deg, #090913 0%, #343467 100%);
     opacity: 0.5;
 }
 
 .sidebarOpen {
+    left: 0;
     width: 180px;
     background: linear-gradient(180deg, #090913 0%, #1a1a3d 100%);
     opacity: 1;
@@ -36,17 +38,18 @@
 }
 
 .toggleButton {
-    position: absolute;
-    top: 37%;
-    left: 100%;
-    transform: translateX(-100%);
+    position: fixed;
+    top: 40px; 
+    left: 50px;
     background: #2a2e40;
-    border: none;
+    border: 1px solid white;
     color: white;
-    font-size: 25px;
+    font-size: 15px;
     cursor: pointer;
     padding: 10px;
     border-radius: 0 5px 5px 0;
+    transition: left 0.5s ease;
+    z-index: 1000;
 }
 
 .title {
@@ -85,7 +88,7 @@ li img {
     transition: transform 0.5s ease, width 0.5s ease;
 }
 
-.sidebarClosed li a span, .sidebarClosed .title {
+.sidebarClosed li a span, .sidebarClosed .title, .sidebarClosed li img {
     display: none;
 }
 

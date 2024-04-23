@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MyNav from "../../components/Navbar/MyNav";
 import MyFooter from "../../components/Footer/MyFooter";
 import AchievementCard from "../../components/AchievementCard/AchievementCard";
+import Sidebar from '../../components/Sidebar/Sidebar';
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAchievements } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
@@ -38,6 +39,7 @@ const AchievementsPage = () => {
     return (
         <>
             <MyNav />
+            <Sidebar />
             <div className={styles.container}>
                 <input
                     type="text"

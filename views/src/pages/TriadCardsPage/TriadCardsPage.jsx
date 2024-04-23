@@ -3,6 +3,7 @@ import MyNav from "../../components/Navbar/MyNav";
 import MyFooter from "../../components/Footer/MyFooter";
 import TriadCard from "../../components/TriadCardsCard/TriadCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import Sidebar from '../../components/Sidebar/Sidebar';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchTriadCards } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
 import useResponsivePages from "../../customHooks/useResponsivePages";
@@ -42,6 +43,7 @@ const TriadCardsPage = () => {
     return (
         <>
             <MyNav />
+            <Sidebar />
             <div className={styles.container}>
                 <input
                     type="text"

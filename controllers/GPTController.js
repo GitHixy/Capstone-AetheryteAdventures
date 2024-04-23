@@ -6,7 +6,7 @@ const generateLore = async (req, res) => {
         model: "gpt-3.5-turbo-0125",
         messages: [{
             role: "user",
-            content: `Create a lore introduction for a ${gender} character named ${name}, a ${race}, wich is a ${charClass} , referred to as the Warrior of Light in Final Fantasy XIV, max 1000 characters.`
+            content: `Create a lore introduction for a ${gender} character named ${name}, a ${race}, wich is a ${charClass} , referred to as the Warrior of Light in Final Fantasy XIV, summarize the lore in maximum 1000 characters that completes the sentence.`
         }],
         max_tokens: 300
      };

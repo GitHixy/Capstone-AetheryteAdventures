@@ -8,7 +8,8 @@ import minionsIcon from '../../assets/icons/minion_guide.png';
 import mountsIcon from '../../assets/icons/mount_guide.png';
 import orchestrionIcon from '../../assets/icons/orchestrion_list.png';
 import cardsIcon from '../../assets/icons/gold_saucer.png';
-import loreIcon from '../../assets/icons/lore.png'
+import loreIcon from '../../assets/icons/lore.png';
+import armouryIcon from '../../assets/icons/armoury.png';
 
 function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -23,12 +24,18 @@ function Sidebar() {
     const handleTriadCards = () => navigate('/triad/cards');
     const handleEmotes = () => navigate('/emotes');
     const handleLoreGen = () => navigate('/loreGenerator');
+    const handleArmoury = () => navigate('/charSearch');
+
+    const toggleButtonStyle = {
+        left: isOpen ? '180px' : '0px', 
+    };
 
     return (
+        <>
+        <button onClick={toggleSidebar} className={styles.toggleButton} style={toggleButtonStyle}>
+        {isOpen ? '<' : 'Open Menu >'}
+    </button>
         <div className={isOpen ? styles.sidebarOpen : styles.sidebarClosed}>
-            <button onClick={toggleSidebar} className={styles.toggleButton}>
-                {isOpen ? '<' : '>'}
-            </button>
             <div className={styles.title}><h3>Menu</h3><hr/></div>
             
             <ul>
@@ -42,9 +49,11 @@ function Sidebar() {
             </ul>
             <div className={styles.title}><h3>Features</h3><hr/></div>
             <ul>
+            <li><a onClick={handleArmoury} ><img src={armouryIcon} alt="Armoury Icon" />{isOpen && <span>Character Search</span>}</a></li>
             <li><a onClick={handleLoreGen}><img src={loreIcon} alt="Lore Icon" />{isOpen && <span>Lore Generator</span>}</a></li>
             </ul>
         </div>
+        </>
     );
 }
 

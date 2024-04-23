@@ -3,6 +3,7 @@ import MyNav from "../../components/Navbar/MyNav";
 import MyFooter from "../../components/Footer/MyFooter";
 import EmoteCard from "../../components/EmoteCard/EmoteCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import Sidebar from '../../components/Sidebar/Sidebar';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchEmotes } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
 import useResponsivePages from "../../customHooks/useResponsivePages";
@@ -41,6 +42,7 @@ const EmotesPage = () => {
     return (
         <>
             <MyNav />
+            <Sidebar/>
             <div className={styles.container}>
                 <input
                     type="text"
