@@ -8,6 +8,7 @@ const userRoutes = require('./routes/userRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const lodestoneNewsRoutes = require('./routes/lodestoneProxyRoutes');
 const ffxivCollectRoutes = require('./routes/FFXIVProxyRoutes');
+const loreRoutes = require('./routes/GPTRoutes');
 
 const PORT = process.env.PORT || 8080;
 cloudinaryConfig();
@@ -21,6 +22,7 @@ app.use('/', userRoutes);
 app.use('/', loginRoutes);
 app.use('/', lodestoneNewsRoutes);
 app.use('/', ffxivCollectRoutes);
+app.use('/api', loreRoutes);
 
 //Database Connection
 

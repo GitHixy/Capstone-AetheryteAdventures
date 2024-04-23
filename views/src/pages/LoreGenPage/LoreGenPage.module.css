@@ -1,0 +1,115 @@
+.container {
+    color: #fff;
+    background: linear-gradient(180deg, #032033, #200a0d); 
+    padding: 20px;
+    border-radius: 12px; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    text-align: center;
+    width: 400px;
+    margin: 30px auto;
+    
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.label {
+    font-size: 1.3em; 
+    margin-bottom: 8px; 
+}
+
+.input,
+.select {
+    padding: 12px; 
+    border-radius: 8px; 
+    border: 2px solid transparent; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    color: #fff;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s; 
+}
+
+.input:focus,
+.select:focus {
+    border-color: #fc5c7d; 
+    box-shadow: 0 0 8px rgba(252, 92, 125, 0.8); 
+}
+
+.select option {
+    background-color: #fff; 
+    color: #000;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1); 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); 
+}
+
+.button:hover {
+    background-color: #eb3349; 
+    transform: translateY(-3px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed; 
+}
+
+.error {
+    color: #ff4757; 
+    margin-top: 10px;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(22, 19, 19, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 1; 
+    transition: opacity 1s ease; 
+    transition: visibility 0s 1s, opacity 1s ease; 
+}
+
+.genTitle {
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 0;
+    letter-spacing: 1.5px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    padding: 10px 0; 
+}
+
+.disclaimer {
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 500px;
+    font-size: 0.9em; 
+    text-align: center;
+}
+
+.disclaimer p {
+    color: #fff;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.container, .disclaimer, .genTitle {
+    animation: fadeIn 2s ease-in-out;
+}

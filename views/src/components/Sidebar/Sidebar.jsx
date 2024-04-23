@@ -8,6 +8,7 @@ import minionsIcon from '../../assets/icons/minion_guide.png';
 import mountsIcon from '../../assets/icons/mount_guide.png';
 import orchestrionIcon from '../../assets/icons/orchestrion_list.png';
 import cardsIcon from '../../assets/icons/gold_saucer.png';
+import loreIcon from '../../assets/icons/lore.png'
 
 function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,7 @@ function Sidebar() {
     const handleOrchestrions = () => navigate('/orchestrions');
     const handleTriadCards = () => navigate('/triad/cards');
     const handleEmotes = () => navigate('/emotes');
+    const handleLoreGen = () => navigate('/loreGenerator');
 
     return (
         <div className={isOpen ? styles.sidebarOpen : styles.sidebarClosed}>
@@ -36,7 +38,11 @@ function Sidebar() {
                 <li><a onClick={handleMinions}><img src={minionsIcon} alt="Minions Icon" />{isOpen && <span>Minions</span>}</a></li>
                 <li><a onClick={handleOrchestrions}><img src={orchestrionIcon} alt="Orchestrions Icon" />{isOpen && <span>Orchestrions</span>}</a></li>
                 <li><a onClick={handleTriadCards}><img src={cardsIcon} alt="Triad Cards Icon" />{isOpen && <span>Triad Cards</span>}</a></li>
-                <li><a onClick={handleEmotes}><img src={emotesIcon} alt="Emotes Icon" />{isOpen && <span>Emotes</span>}</a></li>
+                <li><a onClick={handleEmotes}><img src={emotesIcon} alt="Emotes Icon" />{isOpen && <span>Emotes</span>}</a></li>               
+            </ul>
+            <div className={styles.title}><h3>Features</h3><hr/></div>
+            <ul>
+            <li><a onClick={handleLoreGen}><img src={loreIcon} alt="Lore Icon" />{isOpen && <span>Lore Generator</span>}</a></li>
             </ul>
         </div>
     );
