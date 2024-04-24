@@ -15,11 +15,11 @@ const useResponsivePages = (defaultSize = 8) => {
             } else if (width >= 1660 && width < 1930) {
                 setResultsPerPage(12);
             } else if (width >= 1930 && width < 2200) {
-                setResultsPerPage(14);
+                setResultsPerPage(6);
             } else if (width >= 2200 && width < 2470) {
-                setResultsPerPage(16);
+                setResultsPerPage(8);
             } else if (width >= 2470 && width < 2740) {
-                setResultsPerPage(18);
+                setResultsPerPage(8);
             } else if (width >= 2740) {
                 setResultsPerPage(20);
             } else {

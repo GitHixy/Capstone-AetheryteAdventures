@@ -1,0 +1,70 @@
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #e4dddd;
+    width: 230px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+}
+.image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.details {
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 10px 0;
+align-items: center;
+    
+}
+
+.sources {
+    margin-top: 5px;
+text-align: center;
+    gap: 10px;
+    
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.card {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .card {
+        width: 80%;
+    }
+}
+
+@media (max-width: 800px) {
+    .card {
+        
+        width: 80%;
+    }
+}
+
+@media (max-width: 500px) {
+    .card {
+       
+width: 80%;
+    }
+}

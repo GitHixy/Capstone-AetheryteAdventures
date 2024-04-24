@@ -11,10 +11,11 @@ import OrchestrionsPage from "./pages/OrchestrionsPage/OrchestrionsPage";
 import TriadCardsPage from "./pages/TriadCardsPage/TriadCardsPage";
 import EmotesPage from "./pages/EmotesPage/EmotesPage";
 import LoreGenPage from "./pages/LoreGenPage/LoreGenPage";
-import CharSearchPage from "./pages/CharSearchPage/CharSearchPage";
+import FashionsPage from "./pages/FashionsPage/FashionsPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./customCSS/toastsMod.css";
+
 
 function App() {
   return (
@@ -42,7 +43,7 @@ function App() {
         <Route path="/triad/cards" element={<TriadCardsPage />} />
         <Route path="/emotes" element={<EmotesPage />} />
         <Route path="/loreGenerator" element={<LoreGenPage/>} />
-        <Route path="/charSearch" element={<CharSearchPage/>} />
+        <Route path="/fashions" element={<FashionsPage/>} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>

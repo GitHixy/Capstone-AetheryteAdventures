@@ -3,7 +3,6 @@ import userReducer from "../userSlice/userSlice";
 import loginReducer from "../loginSlice/loginSlice";
 import lodestoneReducer from "../lodestoneSlice/lodestoneSlice";
 import loreReducer from "../loreGenSlice/loreGenSlice";
-import characterReducer from "../characterSlice/characterSlice";
 import {
   achievementsSlice,
   minionsSlice,
@@ -12,6 +11,7 @@ import {
   triadCardsSlice,
   emotesSlice,
   mountsSlice,
+  fashionsSlice
 } from "../ffxivCollectSlice/ffxivCollectSlice";
 
 export const store = configureStore({
@@ -26,7 +26,7 @@ export const store = configureStore({
     triadCards: triadCardsSlice.reducer,
     emotes: emotesSlice.reducer,
     mounts: mountsSlice.reducer,
+    fashions: fashionsSlice.reducer,
     lore: loreReducer,
-    character: characterReducer,
   },
 });

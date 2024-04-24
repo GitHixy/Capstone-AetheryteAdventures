@@ -11,7 +11,7 @@
 }
 
 .sidebarClosed {
-    left: -180px; 
+    left: -182px; 
     width: 180px; 
     background: linear-gradient(180deg, #090913 0%, #343467 100%);
     opacity: 0.5;

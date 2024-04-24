@@ -125,6 +125,23 @@ const fetchEmotes = async (req, res) => {
   }
 };
 
+const fetchFashions = async (req, res) => {
+  const config = {
+    method: "get",
+    maxBodyLength: Infinity,
+    url: `${process.env.FFXIV_COLLECT_BASE_URL}/fashions`,
+    headers: {},
+  };
+  try {
+    const response = await axios(config);
+    res.send(response.data);
+  } catch (e) {
+    res
+      .status(500)
+      .json({ message: "Failed to fetch Fashions", details: error.message });
+  }
+};
+
 module.exports = {
   fetchMounts,
   fetchAchievements,
@@ -133,4 +150,5 @@ module.exports = {
   fetchTitles,
   fetchTriadCards,
   fetchEmotes,
+  fetchFashions,
 };

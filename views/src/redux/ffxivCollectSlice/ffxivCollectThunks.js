@@ -35,3 +35,8 @@ export const fetchMounts = createAsyncThunk('mounts/fetchMounts', async () => {
     const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/mounts`);
     return response.data;
   });
+
+  export const fetchFashions = createAsyncThunk('fashions/fetchFashions', async () => {
+    const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/fashions`);
+    return response.data;
+  });

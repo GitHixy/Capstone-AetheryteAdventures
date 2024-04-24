@@ -9,7 +9,7 @@ import mountsIcon from '../../assets/icons/mount_guide.png';
 import orchestrionIcon from '../../assets/icons/orchestrion_list.png';
 import cardsIcon from '../../assets/icons/gold_saucer.png';
 import loreIcon from '../../assets/icons/lore.png';
-import armouryIcon from '../../assets/icons/armoury.png';
+import FashionsIcon from '../../assets/icons/fashion.png';
 
 function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +24,7 @@ function Sidebar() {
     const handleTriadCards = () => navigate('/triad/cards');
     const handleEmotes = () => navigate('/emotes');
     const handleLoreGen = () => navigate('/loreGenerator');
-    const handleArmoury = () => navigate('/charSearch');
+    const handleFashions = () => navigate('/fashions');
 
     const toggleButtonStyle = {
         left: isOpen ? '180px' : '0px', 
@@ -45,11 +45,11 @@ function Sidebar() {
                 <li><a onClick={handleMinions}><img src={minionsIcon} alt="Minions Icon" />{isOpen && <span>Minions</span>}</a></li>
                 <li><a onClick={handleOrchestrions}><img src={orchestrionIcon} alt="Orchestrions Icon" />{isOpen && <span>Orchestrions</span>}</a></li>
                 <li><a onClick={handleTriadCards}><img src={cardsIcon} alt="Triad Cards Icon" />{isOpen && <span>Triad Cards</span>}</a></li>
-                <li><a onClick={handleEmotes}><img src={emotesIcon} alt="Emotes Icon" />{isOpen && <span>Emotes</span>}</a></li>               
+                <li><a onClick={handleEmotes}><img src={emotesIcon} alt="Emotes Icon" />{isOpen && <span>Emotes</span>}</a></li> 
+                <li><a onClick={handleFashions}><img src={FashionsIcon} alt="Fashions Icon" />{isOpen && <span>Fashion Accessories</span>}</a></li>              
             </ul>
             <div className={styles.title}><h3>Features</h3><hr/></div>
             <ul>
-            <li><a onClick={handleArmoury} ><img src={armouryIcon} alt="Armoury Icon" />{isOpen && <span>Character Search</span>}</a></li>
             <li><a onClick={handleLoreGen}><img src={loreIcon} alt="Lore Icon" />{isOpen && <span>Lore Generator</span>}</a></li>
             </ul>
         </div>
