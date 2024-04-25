@@ -8,8 +8,9 @@ import minionsIcon from '../../assets/icons/minion_guide.png';
 import mountsIcon from '../../assets/icons/mount_guide.png';
 import orchestrionIcon from '../../assets/icons/orchestrion_list.png';
 import cardsIcon from '../../assets/icons/gold_saucer.png';
-import loreIcon from '../../assets/icons/lore.png';
+import loreIcon from '../../assets/icons/loregen.png';
 import FashionsIcon from '../../assets/icons/fashion.png';
+import loreBooksIcon from '../../assets/icons/lorebooks.png';
 
 function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +26,7 @@ function Sidebar() {
     const handleEmotes = () => navigate('/emotes');
     const handleLoreGen = () => navigate('/loreGenerator');
     const handleFashions = () => navigate('/fashions');
+    const handleLoreBooks = () => navigate('/books');
 
     const toggleButtonStyle = {
         left: isOpen ? '180px' : '0px', 
@@ -50,6 +52,7 @@ function Sidebar() {
             </ul>
             <div className={styles.title}><h3>Features</h3><hr/></div>
             <ul>
+            <li><a onClick={handleLoreBooks}><img src={loreBooksIcon} alt="Books Icon" />{isOpen && <span>Books of Knowledge</span>}</a></li>
             <li><a onClick={handleLoreGen}><img src={loreIcon} alt="Lore Icon" />{isOpen && <span>Lore Generator</span>}</a></li>
             </ul>
         </div>
