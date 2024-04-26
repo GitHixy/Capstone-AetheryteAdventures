@@ -22,7 +22,12 @@ const userSchema = new mongoose.Schema({
     avatar: {
         type: String,
         required: false
-    }
-});
+    },
+    favourites: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Favourites',
+        default: [],        
+    }]
+}, {timestamps: true, strict: true});
 
 module.exports = mongoose.model('UserModel', userSchema, 'users');

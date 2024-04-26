@@ -1,0 +1,40 @@
+.dashboardContainer {
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.userCard {
+    color: #fff;
+    box-shadow: 0 8px 8px 8px  rgba(242, 242, 243, 0.1);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 15px;
+    object-fit: cover;
+}
+
+.userInfo {
+    padding: 2px 16px;
+}
+
+.userInfo h2 {
+    margin: 0;
+}
+
+.userInfo p {
+    color: #fff;
+}

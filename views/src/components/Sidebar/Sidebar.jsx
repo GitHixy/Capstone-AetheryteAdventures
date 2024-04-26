@@ -11,6 +11,7 @@ import cardsIcon from '../../assets/icons/gold_saucer.png';
 import loreIcon from '../../assets/icons/loregen.png';
 import FashionsIcon from '../../assets/icons/fashion.png';
 import loreBooksIcon from '../../assets/icons/lorebooks.png';
+import logo from '../../assets/Aetheryte Adventures.png';
 
 function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -38,8 +39,8 @@ function Sidebar() {
         {isOpen ? '<' : 'Open Menu >'}
     </button>
         <div className={isOpen ? styles.sidebarOpen : styles.sidebarClosed}>
-            <div className={styles.title}><h3>Menu</h3><hr/></div>
-            
+            <img className={styles.sideImg} src={logo} alt="LogoAA" />
+            <div className={styles.title}><hr/><h4>Codex</h4><hr/></div>
             <ul>
                 <li><a onClick={handleAchievements}><img src={achiIcon} alt="Achievements Icon" />{isOpen && <span>Achievements</span>}</a></li>
                 <li><a onClick={handleTitles}><img src={charIcon} alt="Titles Icon" />{isOpen && <span>Titles</span>}</a></li>
@@ -50,7 +51,7 @@ function Sidebar() {
                 <li><a onClick={handleEmotes}><img src={emotesIcon} alt="Emotes Icon" />{isOpen && <span>Emotes</span>}</a></li> 
                 <li><a onClick={handleFashions}><img src={FashionsIcon} alt="Fashions Icon" />{isOpen && <span>Fashion Accessories</span>}</a></li>              
             </ul>
-            <div className={styles.title}><h3>Features</h3><hr/></div>
+            <div className={styles.title}><hr/><h4>Features</h4><hr/></div>
             <ul>
             <li><a onClick={handleLoreBooks}><img src={loreBooksIcon} alt="Books Icon" />{isOpen && <span>Books of Knowledge</span>}</a></li>
             <li><a onClick={handleLoreGen}><img src={loreIcon} alt="Lore Icon" />{isOpen && <span>Lore Generator</span>}</a></li>

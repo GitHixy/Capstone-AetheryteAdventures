@@ -6,8 +6,7 @@ const bcrypt = require('bcrypt');
 
 const getUsers = async (req, res) => {
     try {
-        const users = await UserModel.find()
-        // Add Populate for FavPosts here
+        const users = await UserModel.find().populate('favourites');
         res.status(200).send(users);
         
     } catch (e) {
@@ -17,6 +16,27 @@ const getUsers = async (req, res) => {
         });        
     };
 };
+
+// GET USER BY ID
+
+const getUserById = async (req, res) => {
+    try {
+        const user = await UserModel.findById(req.params.id).populate('favourites');
+        if (!user) {
+            return res.status(404).send({
+                statusCode: 404,
+                message: 'User not found'
+            });
+        }
+        res.status(200).send(user);
+    } catch (e) {
+        res.status(500).send({
+            statusCode: 500,
+            message: 'Internal Server Error'
+        });
+    }
+};
+
 
 //CREATE USER - REGISTRATION
 
@@ -28,7 +48,7 @@ const createUser = async (req, res) => {
         username: req.body.username,
         email: req.body.email,
         password: hashedPW,
-        avatar: result.url
+        avatar: result.url,
     });
     try {
         const userToSave = await newUser.save();
@@ -44,4 +64,4 @@ const createUser = async (req, res) => {
     };
 };
 
-module.exports = {getUsers, createUser};
+module.exports = {getUsers, createUser, getUserById};

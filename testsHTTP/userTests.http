@@ -17,3 +17,13 @@ Content-Type: application/json
   "email": "hixy@gmail.com",
   "password": "HixyIs90!"
 }
+
+###
+
+POST {{host}}/users/662c056946d9ce9fa8d7765f/favourites/achi
+Content-Type: application/json
+
+{
+  "userId": "662c056946d9ce9fa8d7765f",
+  "achievementId": "4312342"
+}

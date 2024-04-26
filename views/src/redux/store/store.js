@@ -3,6 +3,7 @@ import userReducer from "../userSlice/userSlice";
 import loginReducer from "../loginSlice/loginSlice";
 import lodestoneReducer from "../lodestoneSlice/lodestoneSlice";
 import loreReducer from "../loreGenSlice/loreGenSlice";
+import favsReducer from "../favsSlice/favsSlice";
 import {
   achievementsSlice,
   minionsSlice,
@@ -28,5 +29,6 @@ export const store = configureStore({
     mounts: mountsSlice.reducer,
     fashions: fashionsSlice.reducer,
     lore: loreReducer,
+    favourites: favsReducer,
   },
 });

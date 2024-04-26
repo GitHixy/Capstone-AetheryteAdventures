@@ -7,6 +7,7 @@ export const loginUser = createAsyncThunk(
         try {
             console.log(`Making API call to: ${process.env.REACT_APP_BASE_URL}/login`);
             const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/login`, userData);
+            console.log('API Response:', res.data);
             return res.data;
         } catch (e) {
             return rejectWithValue(e.message);
@@ -19,12 +20,14 @@ export const loginUser = createAsyncThunk(
 const loginSlice = createSlice({
     name: 'login',
     initialState:  {
-        user: localStorage.getItem('username') || null,
+        user: {},
+        id: localStorage.getItem('userId') || null,
         token: localStorage.getItem('auth') || null,
         status: 'idle',
         error: null
     },
     reducers: {
+        resetStatus: (state) => {state.status = 'idle'},
         resetLoginState: (state) => {
             state.user = null;
             state.token = null;
@@ -35,6 +38,7 @@ const loginSlice = createSlice({
             console.log("Logging out, clearing state and local storage");
             localStorage.removeItem('auth');
             localStorage.removeItem('username');
+            localStorage.removeItem('userId');
             state.user = null;
             state.token = null;
             state.status = 'idle';
@@ -48,9 +52,14 @@ const loginSlice = createSlice({
             state.error = null;
         })
         .addCase(loginUser.fulfilled, (state, action) => {
-            state.status = 'succeeded';
+            console.log('Payload received:', action.payload);
+            state.status = 'succeededLogin';
             state.token = action.payload.token;
-            state.user = {email: action.payload.email, username: action.payload.username};
+            state.id = action.payload.id;
+            localStorage.setItem('userId', action.payload.id);
+            state.user = {email: action.payload.email, 
+                          username: action.payload.username               
+            };
             localStorage.setItem('auth', action.payload.token);
             localStorage.setItem('username', action.payload.username);
         })
@@ -61,5 +70,5 @@ const loginSlice = createSlice({
     }
 });
 
-export const {resetLoginState, logout} = loginSlice.actions;
+export const {resetLoginState, logout, resetStatus} = loginSlice.actions;
 export default loginSlice.reducer;

@@ -25,8 +25,26 @@ export const createUser = createAsyncThunk(
     }
 );
 
+export const fetchUserById = createAsyncThunk(
+    'users/fetchById',
+    async (userId, { rejectWithValue }) => {
+        try {
+            console.log(`Making API call to: ${process.env.REACT_APP_BASE_URL}/users/${userId}`);
+            const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/users/${userId}`);
+            return res.data;
+        } catch (e) {
+            return rejectWithValue(e.response.data || e.message);
+        }
+    }
+);
+
+
 const initialState = {
-    user: null,
+    user: {
+        favourites:{
+            achievements: []
+    }
+    },
     status: 'idle',
     error: null
 };
@@ -44,13 +62,26 @@ const userSlice = createSlice({
             state.error = null;
         })
         .addCase(createUser.fulfilled, (state, action) => {
-            state.status = 'succeeded';
+            state.status = 'succeededCreatingUser';
             state.user = action.payload;
             state.error = null;
         })
         .addCase(createUser.rejected, (state, action) => {
             state.status = 'failed';
             state.error = action.payload.message || 'Failed to create user';
+        })
+        .addCase(fetchUserById.pending, (state) => {
+            state.status = 'loading';
+            state.error = null;
+        })
+        .addCase(fetchUserById.fulfilled, (state, action) => {
+            state.status = 'succeeded';
+            state.user = action.payload;
+            state.error = null;
+        })
+        .addCase(fetchUserById.rejected, (state, action) => {
+            state.status = 'failed';
+            state.error = action.payload.message || 'Failed to fetch user';
         });
     }
 })

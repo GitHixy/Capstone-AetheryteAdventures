@@ -13,6 +13,7 @@ import EmotesPage from "./pages/EmotesPage/EmotesPage";
 import LoreGenPage from "./pages/LoreGenPage/LoreGenPage";
 import FashionsPage from "./pages/FashionsPage/FashionsPage";
 import BooksPage from "./pages/BookPage/BooksPage";
+import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./customCSS/toastsMod.css";
@@ -46,6 +47,7 @@ function App() {
         <Route path="/loreGenerator" element={<LoreGenPage/>} />
         <Route path="/fashions" element={<FashionsPage/>} />
         <Route path="/books" element={<BooksPage/>} />
+        <Route path="/dashboard/:id" element={<DashboardPage/>} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Router>

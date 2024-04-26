@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logout as logoutAction } from '../../redux/loginSlice/loginSlice';
+import { fetchUserById } from "../../redux/userSlice/userSlice";
 import { useAuth } from '../../customHooks/useAuth';
 import { toast } from 'react-toastify';
 import styles from './MyNav.module.css';
@@ -12,6 +13,7 @@ import LoginModal from '../LoginModal/LoginModal';
 const MyNav = () => {
   const {token, username} = useAuth();
   const dispatch = useDispatch();
+  const userId = useSelector((state)=> state.login.id)
   const [isRegModalOpen, setRegModalOpen] = useState(false);
   const [isLoginModalOpen, setLoginModalOpen] = useState(false);
   const navigate = useNavigate();
@@ -31,11 +33,24 @@ const MyNav = () => {
   const handleLogout = () => {
     dispatch(logoutAction());
     toast.success('You Have Logged Out!');
+    navigate('/')
   };
   
   const aboutRedirect = () => {
     navigate('/about');
   }
+  const dashboardRedirect = () => {
+    console.log('Redirecting to dashboard for user ID:', userId);
+    dispatch(fetchUserById(userId))
+      .unwrap()
+      .then((user) => {
+        navigate(`/dashboard/${userId}`);
+      })
+      .catch(error => {
+        console.error('Failed to fetch user:', error);
+        navigate('/*'); 
+      });
+  };
 
   useEffect(() => {
     
@@ -65,8 +80,10 @@ const MyNav = () => {
                  <li className={styles.navItem} ><a href="#" id={styles.specialBtn} onClick={handleRegOpenModal} role="button">Register</a></li>
               </>
             ) : (
-              
+              <>
+              <li className={styles.navItem} ><a href="#" id={styles.specialBtn} onClick={dashboardRedirect} >Dashboard</a></li>
               <li className={styles.navItem} ><a href="#" id={styles.specialBtn} onClick={handleLogout}>Logout</a></li>
+              </>
             )}
       </ul>
     </div>

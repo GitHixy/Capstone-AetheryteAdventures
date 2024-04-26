@@ -37,6 +37,7 @@ const userLogin = async (req, res) => {
             statusCode: 200,
             token,
             username: user.username,
+            id: user._id,
         });
     } catch (e) {
         res.status(500).send({

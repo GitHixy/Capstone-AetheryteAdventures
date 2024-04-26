@@ -9,6 +9,7 @@ const loginRoutes = require('./routes/loginRoutes');
 const lodestoneNewsRoutes = require('./routes/lodestoneProxyRoutes');
 const ffxivCollectRoutes = require('./routes/FFXIVProxyRoutes');
 const loreRoutes = require('./routes/GPTRoutes');
+const favsRoutes = require('./routes/favsRoutes');
 
 
 
@@ -25,6 +26,7 @@ app.use('/', loginRoutes);
 app.use('/', lodestoneNewsRoutes);
 app.use('/', ffxivCollectRoutes);
 app.use('/api', loreRoutes);
+app.use('/', favsRoutes);
 
 
 

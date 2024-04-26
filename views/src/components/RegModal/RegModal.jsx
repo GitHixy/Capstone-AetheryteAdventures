@@ -39,21 +39,13 @@ const RegModal = ({ isOpen, onClose }) => {
     };
 
     dispatch(createUser(userData));
-    
     setTimeout(() => {
       onClose();
     }, 3500);
-  
   };
 
-  useEffect(() => {
-    if (!isOpen) {
-        dispatch(resetUserState());
-    }
-}, [isOpen, dispatch]);
-
   React.useEffect(() => {
-    if (userStatus === "succeeded") {
+    if (userStatus === "succeededCreatingUser") {
       toast.success("Registration successful!");
       setUsername("");
       setEmail("");

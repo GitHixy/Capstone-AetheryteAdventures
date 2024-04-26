@@ -35,7 +35,7 @@ const AchievementsPage = () => {
     const indexOfFirstAchievement = indexOfLastAchievement - resultsPerPage;
     const currentAchievements = filteredAchievements.slice(indexOfFirstAchievement, indexOfLastAchievement);
 
-
+    console.log(achievements);
     return (
         <>
             <MyNav />

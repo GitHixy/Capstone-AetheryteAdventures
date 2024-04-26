@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { loginUser, resetLoginState } from '../../redux/loginSlice/loginSlice';
+import { useNavigate } from 'react-router-dom';
+import { loginUser, resetLoginState, resetStatus } from '../../redux/loginSlice/loginSlice';
 import styles from './LoginModal.module.css'; 
 import { toast } from 'react-toastify';
 
 const LoginModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
   const { status, error } = useSelector((state) => state.login);
-  
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,10 +38,12 @@ const LoginModal = ({ isOpen, onClose }) => {
   }, [isOpen, dispatch]);
 
   React.useEffect(() => {
-    if (status === 'succeeded') {
-      toast.success('Login successful!');
+    if (status === 'succeededLogin') {
       setEmail('');
       setPassword('');
+      toast.success('Login successful!');
+      dispatch(resetStatus());
+      
     }
     if (status === 'failed') {
       toast.error(`Login failed: ${error}`);
