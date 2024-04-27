@@ -6,6 +6,7 @@ import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchMinions } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
+import { fetchFavourites } from "../../redux/allFavsSlice/allFavsSlice";
 import useResponsivePages from "../../customHooks/useResponsivePages";
 import usePagination from "../../customHooks/usePagination";
 import styles from "./MinionsPage.module.css";
@@ -13,6 +14,10 @@ import styles from "./MinionsPage.module.css";
 const MinionsPage = () => {
     const dispatch = useDispatch();
     const { data: minions, status, error } = useSelector((state) => state.minions);
+
+    const favouritesData = useSelector(state => state.allFavourites?.data || {});
+    const minionsData = favouritesData.minions || [];
+
     const [searchTerm, setSearchTerm] = useState('');
     const resultsPerPage = useResponsivePages(8);
     const totalResults = minions?.results ?? [];
@@ -24,7 +29,11 @@ const MinionsPage = () => {
     const { currentPage, renderPaginationControls } = usePagination(filteredMinions.length, resultsPerPage);
     
     useEffect(() => {
-        dispatch(fetchMinions());
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+            dispatch(fetchFavourites(userId));
+            dispatch(fetchMinions());
+        }
     }, [dispatch]);
 
     useEffect(() => {
@@ -60,7 +69,7 @@ const MinionsPage = () => {
                     <>
                         <div className={styles.minionsGrid}>
                             {currentMinions.map((minion) => (
-                                <MinionCard key={minion.id} minion={minion} />
+                                <MinionCard key={minion.id} minion={minion}  isFavorited={minionsData.includes(String(minion.id))} />
                             ))}
                         </div>
                         <div className={styles.pagination}>

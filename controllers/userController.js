@@ -21,7 +21,11 @@ const getUsers = async (req, res) => {
 
 const getUserById = async (req, res) => {
     try {
-        const user = await UserModel.findById(req.params.id).populate('favourites');
+        const user = await UserModel.findById(req.params.id)
+        .populate({
+            path: 'favourites',
+            populate: {path: 'achievements'}
+        });
         if (!user) {
             return res.status(404).send({
                 statusCode: 404,

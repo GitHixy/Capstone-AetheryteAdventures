@@ -10,6 +10,7 @@
     background-color: #e4dddd;
     width: 230px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
 }
 .card:hover {
     transform: scale(1.05); 
@@ -36,6 +37,19 @@ text-align: center;
     gap: 10px;
     
 }
+
+.bookmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    font-size: 30px;
+    }
+    
+    .bookmark:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
 
 @keyframes fadeIn {
     from { opacity: 0; }

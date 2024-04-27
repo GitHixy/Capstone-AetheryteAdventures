@@ -12,12 +12,26 @@
     background-color: #e4dddd;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     text-align: center;
+    position: relative;
 }
 
 .card:hover {
     transform: scale(1.05); 
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
 }
+
+.bookmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    font-size: 30px;
+    }
+    
+    .bookmark:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
 
 .icon {
     

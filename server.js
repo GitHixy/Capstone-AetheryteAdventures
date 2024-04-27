@@ -9,7 +9,16 @@ const loginRoutes = require('./routes/loginRoutes');
 const lodestoneNewsRoutes = require('./routes/lodestoneProxyRoutes');
 const ffxivCollectRoutes = require('./routes/FFXIVProxyRoutes');
 const loreRoutes = require('./routes/GPTRoutes');
-const favsRoutes = require('./routes/favsRoutes');
+const allFavsRoutes = require('./routes/allFavsRoutes');
+const favsAchiRoutes = require('./routes/favsAchiRoutes');
+const favsTitleRoutes = require('./routes/favsTitleRoutes');
+const favsMountRoutes = require('./routes/favsMountRoutes');
+const favsMinionRoutes = require('./routes/favsMinionRoutes');
+const favsOrchestrionRoutes = require('./routes/favsOrchestrionRoutes');
+const favsCardRoutes = require('./routes/favsCardRoutes');
+const favsEmoteRoutes = require('./routes/favsEmoteRoutes');
+const favsFashionRoutes = require('./routes/favsFashionRoutes');
+
 
 
 
@@ -26,7 +35,18 @@ app.use('/', loginRoutes);
 app.use('/', lodestoneNewsRoutes);
 app.use('/', ffxivCollectRoutes);
 app.use('/api', loreRoutes);
-app.use('/', favsRoutes);
+app.use('/', allFavsRoutes);
+app.use('/', favsAchiRoutes);
+app.use('/', favsTitleRoutes);
+app.use('/', favsMountRoutes);
+app.use('/', favsMinionRoutes);
+app.use('/', favsOrchestrionRoutes);
+app.use('/', favsCardRoutes);
+app.use('/', favsEmoteRoutes);
+app.use('/', favsFashionRoutes);
+
+
+
 
 
 

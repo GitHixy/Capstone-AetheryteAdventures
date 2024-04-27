@@ -11,6 +11,7 @@
     border-radius: 5px;
     background-color: #e4dddd;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
 }
 
 .card:hover {
@@ -29,6 +30,19 @@
     font-size: 1em;
     color: rgb(24, 24, 24);
 }
+
+.bookmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    font-size: 30px;
+    }
+    
+    .bookmark:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+    }
 
 .title {
     margin-top: 10px;

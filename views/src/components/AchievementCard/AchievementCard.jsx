@@ -1,44 +1,39 @@
 import React, {useState, useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import { addAchievementToFavourites } from '../../redux/favsSlice/favsSlice';
-import { fetchUserById } from '../../redux/userSlice/userSlice';
+import {useDispatch} from 'react-redux';
+import { addAchievementToFavourites, removeAchievementFromFavourites } from '../../redux/favsAchiSlice/favsAchiSlice';
 import styles from './AchievementCard.module.css'; 
 import { BsBookmarkHeart, BsBookmarkHeartFill } from "react-icons/bs";
 
-const AchievementCard = ({ achievement }) => {
-    const [isSaved, setIsSaved] = useState(false);
+const AchievementCard = ({ achievement, isFavorited}) => {
+    const [isSaved, setIsSaved] = useState(isFavorited);
     const dispatch = useDispatch();
-    const user = useSelector((state)=>state.user.user);
     const token = localStorage.getItem('auth');
     const userId = localStorage.getItem('userId');
     
-    useEffect(() => {
-        if (userId) {
-            dispatch(fetchUserById(userId));
-        }
-    }, [dispatch]);
-
-    useEffect(() => {
-        console.log("User:", user);
-    console.log("Achievements in Favourites:", user?.favourites?.achievements);
-        
-    }, [user, achievement.id]);
-
-    const handleSelection = () => {
+    const toggleFavorite = () => {
         const newIsSaved = !isSaved;
         setIsSaved(newIsSaved);       
         if(token) {
             if(newIsSaved) {
                 dispatch(addAchievementToFavourites({userId: userId, achievementId: achievement.id}));
             } else {
-                // LA DELETE X ID VA QUI
+                dispatch(removeAchievementFromFavourites({userId: userId, achievementId: achievement.id}));
             }
         } 
     };
 
+    useEffect(() => {
+        setIsSaved(isFavorited);
+    }, [isFavorited]);
+
     return (
         <div className={styles.card}>   
-             {token && isSaved ? <BsBookmarkHeartFill onClick={handleSelection} className={styles.bookmark}/> : <BsBookmarkHeart onClick={handleSelection} className={styles.bookmark}/>}           
+             {token && userId ? (
+            isSaved ? 
+            (<BsBookmarkHeartFill onClick={toggleFavorite} className={styles.bookmark}/>) :
+            (<BsBookmarkHeart onClick={toggleFavorite} className={styles.bookmark}/>)
+            ) : <></>}
+           
             <img className={styles.icon} src={achievement.icon} alt={achievement.name} />
             <h3>{achievement.name}</h3>
             <p>{achievement.description}</p>

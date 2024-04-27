@@ -3,7 +3,16 @@ import userReducer from "../userSlice/userSlice";
 import loginReducer from "../loginSlice/loginSlice";
 import lodestoneReducer from "../lodestoneSlice/lodestoneSlice";
 import loreReducer from "../loreGenSlice/loreGenSlice";
-import favsReducer from "../favsSlice/favsSlice";
+import allFavsReducer from "../allFavsSlice/allFavsSlice";
+import favsAchiReducer from "../favsAchiSlice/favsAchiSlice";
+import favsTitlesReducer from "../favsTitleSlice/favsTitleSlice";
+import favsCardsReducer from "../favsCardSlice/favsCardSlice";
+import favsEmotesReducer from "../favsEmoteSlice/favsEmoteSlice";
+import favsFashionsReducer from "../favsFashionSlice/favsFashionSlice";
+import favsMinionsReducer from "../favsMinionSlice/favsMinionSlice";
+import favsMountsReducer from "../favsMountSlice/favsMountSlice";
+import favsOrchestrionsReducer from "../favsOrchestrionSlice/favsOrchestrionSlice";
+import compareReducer from "../ffxivCompareSlice/ffxivCompareSlice";
 import {
   achievementsSlice,
   minionsSlice,
@@ -29,6 +38,15 @@ export const store = configureStore({
     mounts: mountsSlice.reducer,
     fashions: fashionsSlice.reducer,
     lore: loreReducer,
-    favourites: favsReducer,
+    allFavourites: allFavsReducer,
+    achiFavourites: favsAchiReducer,
+    titleFavourites: favsTitlesReducer,  
+    cardsFavourites: favsCardsReducer,
+    emotesFavourites: favsEmotesReducer,
+    fashionsFavourites: favsFashionsReducer,
+    minionsFavourites: favsMinionsReducer,
+    mountsFavourites: favsMountsReducer,
+    orchestrionsFavourites: favsOrchestrionsReducer,
+    compare: compareReducer,
   },
 });

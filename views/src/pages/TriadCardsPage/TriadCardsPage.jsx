@@ -6,6 +6,7 @@ import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchTriadCards } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
+import { fetchFavourites } from "../../redux/allFavsSlice/allFavsSlice";
 import useResponsivePages from "../../customHooks/useResponsivePages";
 import usePagination from "../../customHooks/usePagination";
 import styles from "./TriadCardsPage.module.css";
@@ -14,6 +15,10 @@ import styles from "./TriadCardsPage.module.css";
 const TriadCardsPage = () => {
     const dispatch = useDispatch();
     const { data: triadCards, status, error } = useSelector((state) => state.triadCards);
+
+    const favouritesData = useSelector(state => state.allFavourites?.data || {});
+    const cardsData = favouritesData.triadCards || [];
+
     const [searchTerm, setSearchTerm] = useState('');
     const resultsPerPage = useResponsivePages(8);
     const totalResults = triadCards?.results ?? [];
@@ -24,9 +29,14 @@ const TriadCardsPage = () => {
 
       const { currentPage, renderPaginationControls } = usePagination(filteredTriadCards.length, resultsPerPage);
 
-    useEffect(() => {
-        dispatch(fetchTriadCards());
+      useEffect(() => {
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+            dispatch(fetchFavourites(userId));
+            dispatch(fetchTriadCards());
+        }
     }, [dispatch]);
+
 
     useEffect(() => {
         
@@ -61,7 +71,8 @@ const TriadCardsPage = () => {
                     <>
                         <div className={styles.triadCardsGrid}>
                             {currentTriadCards.map((triadCard) => (
-                                <TriadCard key={triadCard.id} triadCard={triadCard} />
+                                <TriadCard key={triadCard.id} triadCard={triadCard}
+                                isFavorited={cardsData.includes(String(triadCard.id))} />
                             ))}
                         </div>
                         <div className={styles.pagination}>

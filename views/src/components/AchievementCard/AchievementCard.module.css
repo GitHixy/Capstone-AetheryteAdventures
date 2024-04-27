@@ -36,6 +36,7 @@ font-size: 30px;
 
 .bookmark:hover {
     transform: scale(1.05);
+    cursor: pointer;
 }
 
 .details, p {

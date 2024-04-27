@@ -6,6 +6,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAchievements } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
+import { fetchFavourites } from "../../redux/allFavsSlice/allFavsSlice";
 import useResponsivePages from "../../customHooks/useResponsivePages";
 import usePagination from "../../customHooks/usePagination";
 import styles from "./AchievementsPage.module.css";
@@ -13,6 +14,14 @@ import styles from "./AchievementsPage.module.css";
 const AchievementsPage = () => {
     const dispatch = useDispatch();
     const { data: achievements, status, error } = useSelector((state) => state.achievements);
+    
+    const favouritesData = useSelector(state => state.allFavourites?.data || {});
+    const achievementsData = favouritesData.achievements || [];
+    
+
+    
+
+
     const [searchTerm, setSearchTerm] = useState('');
     const resultsPerPage = useResponsivePages(8);
     const totalResults = achievements?.results ?? [];
@@ -21,9 +30,13 @@ const AchievementsPage = () => {
           achievement.name.toLowerCase().includes(searchTerm.toLowerCase()))
       : totalResults;
       const { currentPage, renderPaginationControls } = usePagination(filteredAchievements.length, resultsPerPage);
-
-    useEffect(() => {
-        dispatch(fetchAchievements());
+    
+      useEffect(() => {
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+            dispatch(fetchFavourites(userId));
+            dispatch(fetchAchievements());
+        }
     }, [dispatch]);
 
     useEffect(() => {
@@ -35,7 +48,8 @@ const AchievementsPage = () => {
     const indexOfFirstAchievement = indexOfLastAchievement - resultsPerPage;
     const currentAchievements = filteredAchievements.slice(indexOfFirstAchievement, indexOfLastAchievement);
 
-    console.log(achievements);
+    
+
     return (
         <>
             <MyNav />
@@ -57,7 +71,12 @@ const AchievementsPage = () => {
                     <>
                         <div className={styles.achievementsGrid}>
                             {currentAchievements.map((achievement) => (
-                                <AchievementCard key={achievement.id} achievement={achievement} />
+                                <AchievementCard 
+                                key={achievement.id} 
+                                achievement={achievement}
+                                isFavorited={achievementsData.includes(String(achievement.id))}
+
+                                />
                             ))}
                         </div>
                         <div className={styles.pagination}>

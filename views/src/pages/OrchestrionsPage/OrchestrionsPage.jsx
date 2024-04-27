@@ -6,6 +6,7 @@ import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchOrchestrions } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
+import { fetchFavourites } from "../../redux/allFavsSlice/allFavsSlice";
 import useResponsivePages from "../../customHooks/useResponsivePages";
 import usePagination from "../../customHooks/usePagination";
 import styles from "./OrchestrionsPage.module.css";
@@ -13,6 +14,10 @@ import styles from "./OrchestrionsPage.module.css";
 const OrchestrionsPage = () => {
     const dispatch = useDispatch();
     const { data: orchestrions, status, error } = useSelector((state) => state.orchestrions);
+
+    const favouritesData = useSelector(state => state.allFavourites?.data || {});
+    const orchestrionsData = favouritesData.orchestrions || [];
+
     const [searchTerm, setSearchTerm] = useState('');
     const resultsPerPage = useResponsivePages(8);
     const totalResults = orchestrions?.results ?? [];
@@ -23,8 +28,12 @@ const OrchestrionsPage = () => {
 
       const { currentPage, renderPaginationControls } = usePagination(filteredOrchestrions.length, resultsPerPage);
 
-    useEffect(() => {
-        dispatch(fetchOrchestrions());
+      useEffect(() => {
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+            dispatch(fetchFavourites(userId));
+            dispatch(fetchOrchestrions());
+        }
     }, [dispatch]);
 
     useEffect(() => {
@@ -60,7 +69,8 @@ const OrchestrionsPage = () => {
                     <>
                         <div className={styles.orchestrionsGrid}>
                             {currentOrchestrions.map((orchestrion) => (
-                                <OrchestrionCard key={orchestrion.id} orchestrion={orchestrion} />
+                                <OrchestrionCard key={orchestrion.id} orchestrion={orchestrion} 
+                                isFavorited={orchestrionsData.includes(String(orchestrion.id))}/>
                             ))}
                         </div>
                         <div className={styles.pagination}>

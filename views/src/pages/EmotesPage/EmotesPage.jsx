@@ -6,6 +6,7 @@ import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchEmotes } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
+import { fetchFavourites } from "../../redux/allFavsSlice/allFavsSlice";
 import useResponsivePages from "../../customHooks/useResponsivePages";
 import usePagination from "../../customHooks/usePagination";
 import styles from "./EmotesPage.module.css";
@@ -13,6 +14,10 @@ import styles from "./EmotesPage.module.css";
 const EmotesPage = () => {
     const dispatch = useDispatch();
     const { data: emotes, status, error } = useSelector((state) => state.emotes);
+
+    const favouritesData = useSelector(state => state.allFavourites?.data || {});
+    const emotesData = favouritesData.emotes || [];
+
     const [searchTerm, setSearchTerm] = useState('');
     const resultsPerPage = useResponsivePages(8);
     const totalResults = emotes?.results ?? [];
@@ -23,8 +28,12 @@ const EmotesPage = () => {
 
       const { currentPage, renderPaginationControls } = usePagination(filteredEmotes.length, resultsPerPage);
 
-    useEffect(() => {
-        dispatch(fetchEmotes());
+      useEffect(() => {
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+            dispatch(fetchFavourites(userId));
+            dispatch(fetchEmotes());
+        }
     }, [dispatch]);
 
     useEffect(() => {
@@ -60,7 +69,10 @@ const EmotesPage = () => {
                     <>
                         <div className={styles.emotesGrid}>
                             {currentEmotes.map((emote) => (
-                                <EmoteCard key={emote.id} emote={emote} />
+                                <EmoteCard 
+                                key={emote.id} 
+                                emote={emote} 
+                                isFavorited={emotesData.includes(String(emote.id))}/>
                             ))}
                         </div>
                         <div className={styles.pagination}>

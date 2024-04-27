@@ -5,6 +5,7 @@ import TitleCard from "../../components/TitleCard/TitleCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useSelector, useDispatch } from "react-redux";
+import { fetchFavourites } from "../../redux/allFavsSlice/allFavsSlice";
 import { fetchTitles } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
 import useResponsivePages from "../../customHooks/useResponsivePages";
 import usePagination from "../../customHooks/usePagination";
@@ -13,6 +14,10 @@ import styles from "./TitlesPage.module.css";
 const TitlesPage = () => {
     const dispatch = useDispatch();
     const { data: titles, status, error } = useSelector((state) => state.titles);
+
+    const favouritesData = useSelector(state => state.allFavourites?.data || {});
+    const titlesData = favouritesData.titles || [];
+
     const [searchTerm, setSearchTerm] = useState('');
     const resultsPerPage = useResponsivePages(8);
     const totalResults = titles?.results ?? [];
@@ -24,7 +29,11 @@ const TitlesPage = () => {
     const { currentPage, renderPaginationControls } = usePagination(filteredTitles.length, resultsPerPage);
 
     useEffect(() => {
-        dispatch(fetchTitles());
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+            dispatch(fetchFavourites(userId));
+            dispatch(fetchTitles());
+        }
     }, [dispatch]);
 
     useEffect(() => {
@@ -55,7 +64,7 @@ const TitlesPage = () => {
                     <>
                         <div className={styles.titlesGrid}>
                             {currentTitles.map((title) => (
-                                <TitleCard key={title.id} title={title} />
+                                <TitleCard key={title.id} title={title}  isFavorited={titlesData.includes(String(title.id))}/>
                             ))}
                         </div>
                         <div className={styles.pagination}>

@@ -6,6 +6,7 @@ import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import Sidebar from '../../components/Sidebar/Sidebar';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchFashions } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
+import { fetchFavourites } from "../../redux/allFavsSlice/allFavsSlice";
 import useResponsivePages from "../../customHooks/useResponsivePages";
 import usePagination from "../../customHooks/usePagination";
 import styles from "./FashionsPage.module.css";
@@ -13,6 +14,10 @@ import styles from "./FashionsPage.module.css";
 const FashionsPage = () => {
     const dispatch = useDispatch();
     const { data: fashions, status, error } = useSelector((state) => state.fashions);
+
+    const favouritesData = useSelector(state => state.allFavourites?.data || {});
+    const fashionsData = favouritesData.fashionAccessories || [];
+
     const [searchTerm, setSearchTerm] = useState('');
     const resultsPerPage = useResponsivePages(8);
     const totalResults = fashions?.results ?? [];
@@ -23,7 +28,11 @@ const FashionsPage = () => {
     const { currentPage, renderPaginationControls } = usePagination(filteredFashions.length, resultsPerPage);
 
     useEffect(() => {
-        dispatch(fetchFashions());
+        const userId = localStorage.getItem('userId');
+        if (userId) {
+            dispatch(fetchFavourites(userId));
+            dispatch(fetchFashions());
+        }
     }, [dispatch]);
 
     useEffect(() => {
@@ -51,7 +60,12 @@ const FashionsPage = () => {
                 {status === "succeeded" && totalResults.length > 0 && (
                     <>
                         <div className={styles.fashionsGrid}>
-                            {currentFashions.map((fashion) => <FashionCard key={fashion.id} fashion={fashion} />)}
+                            {currentFashions.map((fashion) => (
+                            <FashionCard 
+                            key={fashion.id} 
+                            fashion={fashion} 
+                            isFavorited={fashionsData.includes(String(fashion.id))}/>
+                            ))}
                         </div>
                         <div className={styles.pagination}>
                             {renderPaginationControls()}
