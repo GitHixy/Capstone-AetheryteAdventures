@@ -31,11 +31,13 @@ const EmotesPage = () => {
       useEffect(() => {
         const userId = localStorage.getItem('userId');
         if (userId) {
-            dispatch(fetchFavourites(userId));
+            dispatch(fetchFavourites(userId));   
+            dispatch(fetchEmotes());        
+        }else {
             dispatch(fetchEmotes());
         }
     }, [dispatch]);
-
+    
     useEffect(() => {
         
     }, [filteredEmotes.length]);

@@ -31,7 +31,9 @@ const TitlesPage = () => {
     useEffect(() => {
         const userId = localStorage.getItem('userId');
         if (userId) {
-            dispatch(fetchFavourites(userId));
+            dispatch(fetchFavourites(userId));  
+            dispatch(fetchTitles());         
+        }else {
             dispatch(fetchTitles());
         }
     }, [dispatch]);

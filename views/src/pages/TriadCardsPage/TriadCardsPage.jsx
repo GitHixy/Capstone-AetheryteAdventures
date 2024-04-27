@@ -18,7 +18,7 @@ const TriadCardsPage = () => {
 
     const favouritesData = useSelector(state => state.allFavourites?.data || {});
     const cardsData = favouritesData.triadCards || [];
-
+    const userId = localStorage.getItem('userId');
     const [searchTerm, setSearchTerm] = useState('');
     const resultsPerPage = useResponsivePages(8);
     const totalResults = triadCards?.results ?? [];
@@ -30,16 +30,18 @@ const TriadCardsPage = () => {
       const { currentPage, renderPaginationControls } = usePagination(filteredTriadCards.length, resultsPerPage);
 
       useEffect(() => {
-        const userId = localStorage.getItem('userId');
+        
         if (userId) {
             dispatch(fetchFavourites(userId));
+            dispatch(fetchTriadCards());           
+        }else {
             dispatch(fetchTriadCards());
         }
     }, [dispatch]);
 
 
     useEffect(() => {
-        
+       
     }, [filteredTriadCards.length]);
 
 

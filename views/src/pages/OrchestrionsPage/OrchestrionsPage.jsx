@@ -31,11 +31,13 @@ const OrchestrionsPage = () => {
       useEffect(() => {
         const userId = localStorage.getItem('userId');
         if (userId) {
-            dispatch(fetchFavourites(userId));
+            dispatch(fetchFavourites(userId));    
+            dispatch(fetchOrchestrions());       
+        }else {
             dispatch(fetchOrchestrions());
         }
     }, [dispatch]);
-
+    
     useEffect(() => {
         
     }, [filteredOrchestrions.length]);

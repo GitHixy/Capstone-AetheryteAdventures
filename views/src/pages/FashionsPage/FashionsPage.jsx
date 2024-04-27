@@ -17,7 +17,7 @@ const FashionsPage = () => {
 
     const favouritesData = useSelector(state => state.allFavourites?.data || {});
     const fashionsData = favouritesData.fashionAccessories || [];
-
+    const userId = localStorage.getItem('userId');
     const [searchTerm, setSearchTerm] = useState('');
     const resultsPerPage = useResponsivePages(8);
     const totalResults = fashions?.results ?? [];
@@ -28,15 +28,15 @@ const FashionsPage = () => {
     const { currentPage, renderPaginationControls } = usePagination(filteredFashions.length, resultsPerPage);
 
     useEffect(() => {
-        const userId = localStorage.getItem('userId');
         if (userId) {
             dispatch(fetchFavourites(userId));
+            dispatch(fetchFashions());
+        } else {
             dispatch(fetchFashions());
         }
     }, [dispatch]);
 
     useEffect(() => {
-        
     }, [filteredFashions.length]);
 
     const indexOfLastFashion = currentPage * resultsPerPage;

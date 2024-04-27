@@ -30,14 +30,16 @@ const MountsPage = () => {
     useEffect(() => {
         const userId = localStorage.getItem('userId');
         if (userId) {
-            dispatch(fetchFavourites(userId));
+            dispatch(fetchFavourites(userId));    
+            dispatch(fetchMounts());       
+        }else {
             dispatch(fetchMounts());
         }
     }, [dispatch]);
-
+    
     useEffect(() => {
-        
-    }, [filteredMounts.length]);
+       
+    }, [filteredMounts.length, dispatch]);
 
     const indexOfLastMount = currentPage * resultsPerPage;
     const indexOfFirstMount = indexOfLastMount - resultsPerPage;

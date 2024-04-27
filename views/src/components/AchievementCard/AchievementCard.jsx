@@ -32,7 +32,7 @@ const AchievementCard = ({ achievement, isFavorited}) => {
             isSaved ? 
             (<BsBookmarkHeartFill onClick={toggleFavorite} className={styles.bookmark}/>) :
             (<BsBookmarkHeart onClick={toggleFavorite} className={styles.bookmark}/>)
-            ) : <></>}
+            ) : null }
            
             <img className={styles.icon} src={achievement.icon} alt={achievement.name} />
             <h3>{achievement.name}</h3>

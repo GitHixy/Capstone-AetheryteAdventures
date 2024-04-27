@@ -31,11 +31,13 @@ const MinionsPage = () => {
     useEffect(() => {
         const userId = localStorage.getItem('userId');
         if (userId) {
-            dispatch(fetchFavourites(userId));
+            dispatch(fetchFavourites(userId));   
+            dispatch(fetchMinions());         
+        }else {
             dispatch(fetchMinions());
         }
     }, [dispatch]);
-
+    
     useEffect(() => {
     
     }, [filteredMinions.length]);

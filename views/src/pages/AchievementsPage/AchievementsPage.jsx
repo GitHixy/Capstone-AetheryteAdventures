@@ -14,7 +14,7 @@ import styles from "./AchievementsPage.module.css";
 const AchievementsPage = () => {
     const dispatch = useDispatch();
     const { data: achievements, status, error } = useSelector((state) => state.achievements);
-    
+    const userId = localStorage.getItem('userId');
     const favouritesData = useSelector(state => state.allFavourites?.data || {});
     const achievementsData = favouritesData.achievements || [];
     
@@ -32,15 +32,17 @@ const AchievementsPage = () => {
       const { currentPage, renderPaginationControls } = usePagination(filteredAchievements.length, resultsPerPage);
     
       useEffect(() => {
-        const userId = localStorage.getItem('userId');
+        
         if (userId) {
             dispatch(fetchFavourites(userId));
+            dispatch(fetchAchievements());
+        }else {
             dispatch(fetchAchievements());
         }
     }, [dispatch]);
 
     useEffect(() => {
-        
+     
     }, [filteredAchievements.length]);
     
 
