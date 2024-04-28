@@ -26,7 +26,7 @@ const PORT = process.env.PORT || 8080;
 cloudinaryConfig();
 const app = express();
 app.use(cors({
-    origin: '*'
+    origin: 'https://aetheryte-adventures.com'
 }));
 
 // Middleware
