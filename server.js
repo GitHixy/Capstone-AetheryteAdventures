@@ -28,6 +28,14 @@ const app = express();
 app.use(cors({
     origin: ['https://aetheryte-adventures.com']
 }));
+app.options('*', cors());  
+
+
+
+app.use((req, res, next) => {
+    console.log(`Incoming request: ${req.method} ${req.path}`);
+    next();
+});
 
 
 // Middleware
@@ -47,6 +55,15 @@ app.use('/', favsOrchestrionRoutes);
 app.use('/', favsCardRoutes);
 app.use('/', favsEmoteRoutes);
 app.use('/', favsFashionRoutes);
+
+// Err Handler
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: 'Internal Server Error' });
+});
+
+
 
 
 
