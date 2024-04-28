@@ -8,6 +8,7 @@
     z-index: 1000;
     border-right: 3px solid #f8f8f8;
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
 }
 
 .sidebarClosed {

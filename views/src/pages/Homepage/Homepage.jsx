@@ -6,13 +6,17 @@ import MyFooter from "../../components/Footer/MyFooter";
 import NewsCard from "../../components/NewsCard/NewsCard";
 import MaintenanceCard from "../../components/MaintenanceCard/MaintenanceCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import MsgBoard from "../../components/MsgBoard/MsgBoard";
 import {useSelector, useDispatch} from 'react-redux';
+import { useAuth } from '../../customHooks/useAuth';
 import { fetchNews, fetchMaintenance } from "../../redux/lodestoneSlice/lodestoneSlice";
 
 
 const Homepage = () => {
   const dispatch = useDispatch();
   const {maintenance, news, status, error} = useSelector(state => state.lodestone);
+  const {token} = useAuth();
+  const userId = useSelector((state)=> state.login.id)
 
   useEffect(() => {
     dispatch(fetchNews());
@@ -27,8 +31,9 @@ const Homepage = () => {
   <>
   <MyNav />
   <Sidebar />
-  
+  {userId && token && <MsgBoard />}
   <div className={styles.container}>
+    
     <div className={styles.newsContainer}>
   <h2 className={styles.headTitle}>- Latest News from The Lodestone -</h2>
   {news.filter(item => item.image)

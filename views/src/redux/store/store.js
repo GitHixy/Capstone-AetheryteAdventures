@@ -13,6 +13,7 @@ import favsMinionsReducer from "../favsMinionSlice/favsMinionSlice";
 import favsMountsReducer from "../favsMountSlice/favsMountSlice";
 import favsOrchestrionsReducer from "../favsOrchestrionSlice/favsOrchestrionSlice";
 import compareReducer from "../ffxivCompareSlice/ffxivCompareSlice";
+import messageReducer from "../messageSlice/messageSlice"
 import {
   achievementsSlice,
   minionsSlice,
@@ -48,5 +49,6 @@ export const store = configureStore({
     mountsFavourites: favsMountsReducer,
     orchestrionsFavourites: favsOrchestrionsReducer,
     compare: compareReducer,
+    messages: messageReducer,
   },
 });

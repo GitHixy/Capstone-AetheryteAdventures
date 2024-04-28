@@ -18,6 +18,7 @@ const favsOrchestrionRoutes = require('./routes/favsOrchestrionRoutes');
 const favsCardRoutes = require('./routes/favsCardRoutes');
 const favsEmoteRoutes = require('./routes/favsEmoteRoutes');
 const favsFashionRoutes = require('./routes/favsFashionRoutes');
+const messageRoutes = require('./routes/messageRoutes');
 
 
 
@@ -59,16 +60,7 @@ app.use('/', favsOrchestrionRoutes);
 app.use('/', favsCardRoutes);
 app.use('/', favsEmoteRoutes);
 app.use('/', favsFashionRoutes);
-
-// Err Handler
-
-
-
-
-
-
-
-
+app.use('/', messageRoutes);
 
 
 //Database Connection
