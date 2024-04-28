@@ -25,19 +25,10 @@ const favsFashionRoutes = require('./routes/favsFashionRoutes');
 const PORT = process.env.PORT || 8080;
 cloudinaryConfig();
 const app = express();
-app.use(cors((req, callback) => {
-    const allowedOrigins = ['https://aetheryte-adventures.com'];
-    if (allowedOrigins.includes(req.header('Origin'))) {
-      callback(null, { origin: true });
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }));
-  
-app.use((err, req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://aetheryte-adventures.com");
-    res.status(500).send('Internal Server Error');
-});
+app.use(cors({
+    origin: ['https://aetheryte-adventures.com']
+}));
+
 
 // Middleware
 
