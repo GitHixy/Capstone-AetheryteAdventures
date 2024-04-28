@@ -25,7 +25,9 @@ const favsFashionRoutes = require('./routes/favsFashionRoutes');
 const PORT = process.env.PORT || 8080;
 cloudinaryConfig();
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: '*'
+}));
 
 // Middleware
 
