@@ -70,6 +70,7 @@ const MyNav = () => {
     <div className={styles.navLinks}>
       <ul className={styles.navList}>
         <li className={styles.navItem}><a href="/">Home</a></li>
+        <li className={styles.navItem}><a href="/">Dev Diary</a></li>
         <li className={styles.navItem}><a href="#" onClick={aboutRedirect} >About</a></li>
         
         {!token ? (
