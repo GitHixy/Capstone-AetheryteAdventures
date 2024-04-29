@@ -22,11 +22,11 @@
     margin-top: 20px;
   }
   
-  h2 {
+  .newsItem h2 {
     color: goldenrod;
   }
   
-  p {
+  .newsItem p {
     color: #fff;
     font-size: 16px;
     margin-top: 5px;
