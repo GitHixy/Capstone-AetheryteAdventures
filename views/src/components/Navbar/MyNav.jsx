@@ -39,6 +39,9 @@ const MyNav = () => {
   const aboutRedirect = () => {
     navigate('/about');
   }
+  const devDiaryRedirect = () => {
+    navigate('/devDiary');
+  }
   const dashboardRedirect = () => {
     console.log('Redirecting to dashboard for user ID:', userId);
     dispatch(fetchUserById(userId))
@@ -70,7 +73,7 @@ const MyNav = () => {
     <div className={styles.navLinks}>
       <ul className={styles.navList}>
         <li className={styles.navItem}><a href="/">Home</a></li>
-        <li className={styles.navItem}><a href="/">Dev Diary</a></li>
+        <li className={styles.navItem}><a href="#" onClick={devDiaryRedirect} >Dev Diary</a></li>
         <li className={styles.navItem}><a href="#" onClick={aboutRedirect} >About</a></li>
         
         {!token ? (
