@@ -1,139 +1,63 @@
-.container {
-    position: relative;
-    font-family: 'Garamond', serif;
-    margin-inline: auto;
-}
-
-.dropdownToggle {
-    background-color: #4c00829a;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.dropdownContent {
-    position: absolute;
-    background-color: #1a1a3d;
-    color: #fffacd;
-    width: 500px; /* Adjust as necessary */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 5px;
-    padding: 15px;
+.component {
+    background-color: rgb(236, 235, 235);
+    width: 25%;
+    max-width: 400px;
+    margin: 1em auto;
+    padding-bottom: 2em;
+    border: 0.1px solid black;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5px;
-}
-
-.button, .volumeSlider {
-    margin-top: 10px;
-}
-
-.title {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.controls {
+  }
+  
+  .musicCover {
+    object-fit: cover;
+    margin-inline: auto;
+    border-radius: 10%;
+  }
+  
+  .playButton {
+    background: none;
+    border: none;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .subTitle {
+    margin-top: -1em;
+    color: #4f4f4f;
+  }
+  
+  .time {
+    width: 100%;
     display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.button {
-    background: linear-gradient(145deg, #622774, #c73482); 
-    border: 1px solid #ffffff55; 
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 20px; 
-    cursor: pointer;
-    font-family: 'Garamond', serif;
-    font-size: 16px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
-    transition: background-color 0.3s, box-shadow 0.5s, transform 0.2s;
-}
-
-.button:hover {
-    background: linear-gradient(145deg, #7d2a88, #e8368f); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
-    transform: translateY(-2px); 
-}
-
-.button:active {
-    transform: translateY(1px); 
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
-}
-
-.volumeSlider {
-    align-self: center;
-    -webkit-appearance: none; 
-    width: 150px; 
-    height: 8px; 
-    background: #4b0082;
-    outline: none; 
-    opacity: 0.7; 
-    transition: opacity 0.2s ease;
-    border-radius: 5px;
-}
-
-.volumeSlider:hover {
-    opacity: 1; 
-}
-
-.volumeSlider::-webkit-slider-thumb {
-    -webkit-appearance: none; 
-    appearance: none;
-    width: 20px; 
-    height: 20px; 
-    background: #fffacd;
-    cursor: pointer; 
-    border-radius: 50%;
-    box-shadow: 0 0 4px #000;
-}
-
-.volumeSlider::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background: #fffacd;
-    cursor: pointer;
-    border-radius: 50%;
-    box-shadow: 0 0 4px #000;
-}
-
-.volumeSlider::-ms-thumb {
-    width: 20px;
-    height: 20px;
-    background: #fffacd;
-    cursor: pointer;
-    border-radius: 50%;
-    box-shadow: 0 0 4px #000;
-}
-
-.volumeSlider::-webkit-slider-runnable-track {
+    justify-content: space-between;
+    color: #828282;
+    font-size: smaller;
+  }
+  .btnContainer {
+    display: flex;
+    justify-content: space-around;
     width: 100%;
-    height: 8px;
-    cursor: pointer;
-    background: #4b0082;
-    border-radius: 5px;
-}
-
-.volumeSlider::-moz-range-track {
+  }
+  .timeContainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  
+  .timeline {
     width: 100%;
-    height: 8px;
-    cursor: pointer;
-    background: #4b0082;
-    border-radius: 5px;
-}
-
-.volumeSlider::-ms-track {
-    width: 100%;
-    height: 8px;
-    cursor: pointer;
-    background: #4b0082;
-    border-radius: 5px;
-}
-
+    background-color: #27ae60;
+  }
+  
+  input[type="range"] {
+    background-color: #27ae60;
+  }
+  
+  @media (max-width: 900px) {
+    .component {
+      width: 50%;
+    }
+  }
