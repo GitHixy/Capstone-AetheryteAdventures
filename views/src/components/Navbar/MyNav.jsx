@@ -35,6 +35,10 @@ const MyNav = () => {
     toast.success('You Have Logged Out!');
     navigate('/')
   };
+
+  const handleLoginWithDiscord = () => {
+    window.location.href = `${process.env.REACT_APP_BASE_URL}/auth/discord`
+  }
   
   const aboutRedirect = () => {
     navigate('/about');
@@ -80,7 +84,7 @@ const MyNav = () => {
               <> 
               
                 <li className={styles.navItem} ><a href="#" id={styles.specialBtn} onClick={handleLoginOpenModal} role="button">Login</a></li>
-                
+                <li className={styles.navItem} ><a href="#" id={styles.specialBtn} onClick={handleLoginWithDiscord} role="button">Login With Discord</a></li>
                  <li className={styles.navItem} ><a href="#" id={styles.specialBtn} onClick={handleRegOpenModal} role="button">Register</a></li>
               </>
             ) : (

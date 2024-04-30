@@ -1,9 +1,11 @@
 const express = require('express');
+const session = require('express-session');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 const dbConnection = require('./config/dbConfig');
 const {cloudinaryConfig} = require('./config/cloudinaryConfig');
+const {initializePassport} = require('./config/passportConfig');
 const userRoutes = require('./routes/userRoutes');
 const loginRoutes = require('./routes/loginRoutes');
 const lodestoneNewsRoutes = require('./routes/lodestoneProxyRoutes');
@@ -19,19 +21,16 @@ const favsCardRoutes = require('./routes/favsCardRoutes');
 const favsEmoteRoutes = require('./routes/favsEmoteRoutes');
 const favsFashionRoutes = require('./routes/favsFashionRoutes');
 const messageRoutes = require('./routes/messageRoutes');
-
-
-
+const discordRoutes = require('./routes/discordAuthRoutes');
 
 const PORT = process.env.PORT || 8080;
 cloudinaryConfig();
+initializePassport();
 const app = express();
 app.use(cors({
     origin: ['https://aetheryte-adventures.com', 'http://localhost:3000']
 }));
 app.options('*', cors());  
-
-
 
 app.use((req, res, next) => {
     console.log(`Incoming request: ${req.method} ${req.path}`);
@@ -41,6 +40,13 @@ app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ error: 'Internal Server Error' });
 });
+
+app.use(session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+  }))
 
 
 // Middleware
@@ -61,6 +67,8 @@ app.use('/', favsCardRoutes);
 app.use('/', favsEmoteRoutes);
 app.use('/', favsFashionRoutes);
 app.use('/', messageRoutes);
+app.use('/', discordRoutes);
+
 
 
 //Database Connection

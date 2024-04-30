@@ -16,7 +16,7 @@ const DashboardPage = () => {
     const user = useSelector(state => state.user.user);
     const favsData = useSelector(state => state.allFavourites.data);
     const collectibles = useSelector(state => state.compare.data);
-    console.log(collectibles)
+    
     
     const formatDate = (dateString) => new Date(dateString).toLocaleDateString('en-US',{
       day: '2-digit',
@@ -64,7 +64,7 @@ const DashboardPage = () => {
                 ) : (
                     <p>Something Went Wrong</p>
                 )}
-                <h2>Items You've Saved</h2>
+                {collectibles && <h2>Items You've Saved</h2>}
 
 <div className={styles.itemsContainer}>
             {Object.keys(collectibles).map(section => (

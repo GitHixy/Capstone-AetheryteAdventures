@@ -17,7 +17,12 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true,'Password is required']
+        required: [false,'Password is required']
+    },
+    discordId: { 
+        type: String, 
+        unique: true, 
+        sparse: true 
     },
     avatar: {
         type: String,
