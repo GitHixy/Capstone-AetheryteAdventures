@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate, useLocation} from 'react-router-dom';
+import { toast } from 'react-toastify';
 import styles from "./SuccessPage.module.css";
 import MyNav from '../../components/Navbar/MyNav';
 import MyFooter from '../../components/Footer/MyFooter';
@@ -23,9 +24,11 @@ const SuccessPage = () => {
               setTimeout(() => {
                 setLoading(false);
                 navigate(`/dashboard/${id}`);
-              }, 3000);
+              }, 2000);
+              toast.success('You Have Logged In!')
             } else {
               console.error("Auth token not found in URL parameters");
+              toast.error('Something Went Wrong!');
             }
           };
         getAuth();

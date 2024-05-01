@@ -59,7 +59,7 @@
 
 .navItem a:hover {
   color: #ecf0f1;
-  transform: translateY(-3px);
+  transform: translateY(-1px);
 }
 
 .navItem a:hover::after {
@@ -70,6 +70,27 @@
 #specialBtn {
   font-weight: bold;
   color: #f39c12;
+}
+
+#specialBtnDiscord {
+  
+  font-weight: bold;
+  background-color: #5462F1;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+#specialBtnDiscord:hover {
+  background-color: #3643d1; 
+  color: white;
+  outline: none;
+  text-decoration: none;
+}
+
+#specialBtnDiscord svg {
+  margin-right: 5px; 
+  font-size: 20px;
 }
 
 .h2Title {

@@ -116,12 +116,12 @@
 
 @media (max-width: 800px) {
     .container {
-        width: 40%; 
+        width: 60%; 
     }
 }
 
 @media (max-width: 500px) {
     .container {
-        width: 40%;
+        width: 70%;
     }
 }

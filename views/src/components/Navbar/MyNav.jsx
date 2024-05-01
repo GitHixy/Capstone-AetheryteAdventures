@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logout as logoutAction } from '../../redux/loginSlice/loginSlice';
 import { fetchUserById } from "../../redux/userSlice/userSlice";
+import { FaDiscord } from "react-icons/fa";
 import { useAuth } from '../../customHooks/useAuth';
 import { toast } from 'react-toastify';
 import styles from './MyNav.module.css';
@@ -37,7 +38,8 @@ const MyNav = () => {
   };
 
   const handleLoginWithDiscord = () => {
-    window.location.href = `${process.env.REACT_APP_BASE_URL}/auth/discord`
+    window.location.href = `${process.env.REACT_APP_BASE_URL}/auth/discord`;
+
   }
   
   const aboutRedirect = () => {
@@ -84,8 +86,8 @@ const MyNav = () => {
               <> 
               
                 <li className={styles.navItem} ><a href="#" id={styles.specialBtn} onClick={handleLoginOpenModal} role="button">Login</a></li>
-                <li className={styles.navItem} ><a href="#" id={styles.specialBtn} onClick={handleLoginWithDiscord} role="button">Login With Discord</a></li>
-                 <li className={styles.navItem} ><a href="#" id={styles.specialBtn} onClick={handleRegOpenModal} role="button">Register</a></li>
+                <li className={styles.navItem} ><a href="#" id={styles.specialBtn} onClick={handleRegOpenModal} role="button">Register</a></li>
+                <li className={styles.navItem} ><a href="#" id={styles.specialBtnDiscord} onClick={handleLoginWithDiscord} role="button"> <FaDiscord /> Login</a></li>              
               </>
             ) : (
               <>

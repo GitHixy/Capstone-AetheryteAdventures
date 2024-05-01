@@ -13,7 +13,13 @@ const DevDiaryPage = () => {
     <div className={styles.pageLayout}>
         <Sidebar />
         <div className={styles.newsFeed}>
-          <h1 className={styles.header}>Development Diary:</h1>
+          <h1 className={styles.header}>- Development Diary -</h1>
+          <div className={styles.newsItem}>
+            <h2>New Feature: Login with Discord</h2>
+            <p>Users can now register and log using Discord account.</p>
+            <p>Date: May 01, 2024</p>
+            <hr/>
+          </div>
           <div className={styles.newsItem}>
             <h2>'Dev Diary' now available in production</h2>
             <p>Added 'Dev Diary' to keep track of new features and bug fixes.</p>
