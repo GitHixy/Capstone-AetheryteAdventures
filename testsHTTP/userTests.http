@@ -30,9 +30,3 @@ Content-Type: application/json
 
 ###
 
-# FC Search
-
-GET {{host}}/search/fc?name=ital&server=ragnarok
-Content-Type: application/json
-
-###
