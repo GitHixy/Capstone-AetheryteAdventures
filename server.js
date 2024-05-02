@@ -22,6 +22,8 @@ const favsEmoteRoutes = require('./routes/favsEmoteRoutes');
 const favsFashionRoutes = require('./routes/favsFashionRoutes');
 const messageRoutes = require('./routes/messageRoutes');
 const discordRoutes = require('./routes/discordAuthRoutes');
+const ffxivRoutes = require('./routes/ffxivRoutes');
+
 
 const PORT = process.env.PORT || 8080;
 cloudinaryConfig();
@@ -68,6 +70,7 @@ app.use('/', favsEmoteRoutes);
 app.use('/', favsFashionRoutes);
 app.use('/', messageRoutes);
 app.use('/', discordRoutes);
+app.use('/search', ffxivRoutes);
 
 
 

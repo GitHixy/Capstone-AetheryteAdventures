@@ -27,3 +27,12 @@ Content-Type: application/json
   "userId": "662c056946d9ce9fa8d7765f",
   "mountId": "2342"
 }
+
+###
+
+# FC Search
+
+GET {{host}}/search/fc?name=ital&server=ragnarok
+Content-Type: application/json
+
+###
