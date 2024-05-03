@@ -9,15 +9,17 @@ import { fetchDiscordChar } from "../../redux/ffxivCollectSlice/ffxivCollectThun
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import styles from "./DashboardPage.module.css";
 
 const DashboardPage = () => {
-  const { id } = useParams();
+  const { id } = useParams() || localStorage.getItem('userId');
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
   const favsData = useSelector((state) => state.allFavourites.data);
   const discordId = localStorage.getItem("discordId");
   const discordChar = useSelector((state) => state.discordChar.data);
+  const status = useSelector((state) => state.discordChar.status);
   console.log(discordChar);
   const collectibles = useSelector((state) => state.compare.data);
 
@@ -83,9 +85,11 @@ const DashboardPage = () => {
         ) : (
           <p>Something Went Wrong</p>
         )}
-        {discordChar ? (
+
+        <h2>- Your Character on FF XIV -</h2>
+        {status === 'loading' ? (<LoadingSpinner/> ) : status === 'succeeded' && discordChar ? (
           <>
-            <h2>- Your Character on FF XIV -</h2>
+            
             
             <div className={styles.discordCharCard}>
               <img
