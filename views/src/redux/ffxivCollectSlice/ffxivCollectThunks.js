@@ -36,7 +36,13 @@ export const fetchMounts = createAsyncThunk('mounts/fetchMounts', async () => {
     return response.data;
   });
 
-  export const fetchFashions = createAsyncThunk('fashions/fetchFashions', async () => {
+export const fetchFashions = createAsyncThunk('fashions/fetchFashions', async () => {
     const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/fashions`);
     return response.data;
   });
+
+export const fetchDiscordChar = createAsyncThunk('characters/fetchDiscordChar', async (discordId) => {
+  const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/discordCharacters/${discordId}`, {
+  });
+  return response.data;
+});

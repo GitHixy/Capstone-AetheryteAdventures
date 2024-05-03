@@ -7,7 +7,8 @@ const {
     fetchTitles,
     fetchTriadCards,
     fetchEmotes,
-    fetchFashions
+    fetchFashions,
+    fetchDiscordChar
   } = require('../controllers/FFXIVCollectController');
   const ffxivCollectRouter = express.Router();
 
@@ -19,5 +20,6 @@ const {
   ffxivCollectRouter.get('/triad/cards', fetchTriadCards);
   ffxivCollectRouter.get('/emotes', fetchEmotes);
   ffxivCollectRouter.get('/fashions', fetchFashions);
+  ffxivCollectRouter.get('/discordCharacters/:discordId', fetchDiscordChar);
 
   module.exports = ffxivCollectRouter;

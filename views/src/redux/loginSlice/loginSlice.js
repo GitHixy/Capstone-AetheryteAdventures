@@ -23,6 +23,7 @@ const loginSlice = createSlice({
         user: {},
         id: localStorage.getItem('userId') || null,
         token: localStorage.getItem('auth') || null,
+        discordId: localStorage.getItem('discordId') || null,
         status: 'idle',
         error: null
     },
@@ -58,10 +59,12 @@ const loginSlice = createSlice({
             state.id = action.payload.id;
             localStorage.setItem('userId', action.payload.id);
             state.user = {email: action.payload.email, 
-                          username: action.payload.username               
+                          username: action.payload.username, 
+                          discordId: action.payload.discordId              
             };
             localStorage.setItem('auth', action.payload.token);
             localStorage.setItem('username', action.payload.username);
+            localStorage.setItem('discordId', action.payload.discordId);
         })
         .addCase(loginUser.rejected, (state, action) => {
             state.status = 'failed';

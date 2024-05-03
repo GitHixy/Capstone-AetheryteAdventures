@@ -17,10 +17,12 @@ const SuccessPage = () => {
             const authToken = searchParams.get("auth");
             const username = searchParams.get("username");
             const id = searchParams.get("id");
-            if (authToken && username && id) {
+            const discordId = searchParams.get("discordId")
+            if (authToken && username && id && discordId) {
               localStorage.setItem("auth", authToken);
               localStorage.setItem("userId", id);
               localStorage.setItem("username", username);
+              localStorage.setItem("discordId", discordId);
               setTimeout(() => {
                 setLoading(false);
                 navigate(`/dashboard/${id}`);

@@ -20,8 +20,9 @@ exports.discordAuthCallback = (req, res, next) => {
       const token = jwt.sign({ discordId: user.id }, secret, { expiresIn: '1h' });
       const id = user.id
       const username = user.username
+      const discordId = user.discordId
 
-      return res.redirect(`${process.env.BASE_REDIRECT_URL}/success?auth=${token}&id=${id}&username=${username}`);
+      return res.redirect(`${process.env.BASE_REDIRECT_URL}/success?auth=${token}&id=${id}&username=${username}&discordId=${discordId}`);
     });
   })(req, res, next);
 };

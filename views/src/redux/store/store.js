@@ -22,7 +22,8 @@ import {
   triadCardsSlice,
   emotesSlice,
   mountsSlice,
-  fashionsSlice
+  fashionsSlice,
+  discordCharSlice
 } from "../ffxivCollectSlice/ffxivCollectSlice";
 
 export const store = configureStore({
@@ -38,6 +39,7 @@ export const store = configureStore({
     emotes: emotesSlice.reducer,
     mounts: mountsSlice.reducer,
     fashions: fashionsSlice.reducer,
+    discordChar: discordCharSlice.reducer,
     lore: loreReducer,
     allFavourites: allFavsReducer,
     achiFavourites: favsAchiReducer,

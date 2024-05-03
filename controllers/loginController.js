@@ -38,6 +38,7 @@ const userLogin = async (req, res) => {
             token,
             username: user.username,
             id: user._id,
+            discordId: user.discordId
         });
     } catch (e) {
         res.status(500).send({

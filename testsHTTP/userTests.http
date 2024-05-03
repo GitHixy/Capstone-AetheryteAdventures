@@ -30,3 +30,7 @@ Content-Type: application/json
 
 ###
 
+#GET Discord Characters by DiscordId
+
+GET {{host}}/discordCharacters/222103176621326336
+Content-Type: application/json
