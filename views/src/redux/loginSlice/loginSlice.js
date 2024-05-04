@@ -40,6 +40,7 @@ const loginSlice = createSlice({
             localStorage.removeItem('auth');
             localStorage.removeItem('username');
             localStorage.removeItem('userId');
+            localStorage.removeItem('discordId');
             state.user = null;
             state.token = null;
             state.status = 'idle';

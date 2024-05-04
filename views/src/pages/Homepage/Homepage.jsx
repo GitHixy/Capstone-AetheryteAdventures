@@ -42,7 +42,7 @@ const Homepage = () => {
   <>
   <MyNav />
   <Sidebar />
-  {userId && token && <MsgBoard />}
+  {userId && token ? (<MsgBoard />) : (null)}
 
   <div className={styles.searchContainer}>
       <h2>Search Lodestone Character</h2>
@@ -84,12 +84,7 @@ const Homepage = () => {
                 <p>
                   {searchData.server} [{searchData.data_center}]
                 </p>
-                {searchData && searchData.achievements && (
-                  <p>
-                    Achievements: {searchData.achievements.count} /{" "}
-                    {searchData.achievements.total}
-                  </p>
-                )}
+                
                 {searchData && searchData.mounts && (
                   <p>
                     Mounts: {searchData.mounts.count} /{" "}
@@ -101,6 +96,20 @@ const Homepage = () => {
                     Minions: {searchData.minions.count} /{" "}
                     {searchData.minions.total}
                   </p>
+                )}
+                {searchData && searchData.achievements && (
+                  <>
+                  
+                  <p>
+                    Achievements: {searchData.achievements.count} /{" "}
+                    {searchData.achievements.total}
+                  </p>
+                  <div className={styles.sectionContainer}>
+                  <p>Server Rank: {searchData.rankings.achievements.server || 'Not provided'}</p>
+                  <p>Data Center Rank: {searchData.rankings.achievements.data_center || 'Not provided'}</p>
+                  <p>Global Rank: {searchData.rankings.achievements.global || 'Not provided'}</p>
+                  </div>
+                  </>
                 )}
                 <p id={styles.disclaimer}>Please note that some information may not be visible due to privacy settings configured in Lodestone.</p>
 

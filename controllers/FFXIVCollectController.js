@@ -149,7 +149,7 @@ try {
   const response = await axios.get(`${process.env.FFXIV_KALILISTIC_BASE_URL}/player?playerName=${player}&worldName=${server}`);
   const lodestoneId = response.data.lodestoneId;
 
-  const lodestoneChar = await axios.get(`${process.env.FFXIV_COLLECT_BASE_URL}/characters/${lodestoneId}`)
+  const lodestoneChar = await axios.get(`${process.env.FFXIV_COLLECT_BASE_URL}/characters/${lodestoneId}?latest=true`)
   res.send({
     lodestoneChar: lodestoneChar.data
   });

@@ -33,8 +33,9 @@ const MyNav = () => {
 
   const handleLogout = () => {
     dispatch(logoutAction());
+    navigate('/');
     toast.success('You Have Logged Out!');
-    navigate('/')
+    
   };
 
   const handleLoginWithDiscord = () => {
