@@ -8,7 +8,7 @@ import {
   fetchEmotes,
   fetchMounts,
   fetchFashions,
-  fetchDiscordChar
+  fetchLodestoneChar
 } from './ffxivCollectThunks';
 
 const createDataSlice = (name, fetchThunk) => {
@@ -41,4 +41,4 @@ export const triadCardsSlice = createDataSlice('triadCards', fetchTriadCards);
 export const emotesSlice = createDataSlice('emotes', fetchEmotes);
 export const mountsSlice = createDataSlice('mounts', fetchMounts);
 export const fashionsSlice = createDataSlice('fashions', fetchFashions);
-export const discordCharSlice = createDataSlice('discordChar', fetchDiscordChar);
+export const lodestoneCharSlice = createDataSlice('lodestoneChar', fetchLodestoneChar);

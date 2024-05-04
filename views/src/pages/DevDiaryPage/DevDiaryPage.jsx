@@ -15,11 +15,10 @@ const DevDiaryPage = () => {
         <div className={styles.newsFeed}>
           <h1 className={styles.header}>- Development Diary -</h1>
           <div className={styles.newsItem}>
-            <h2>New Feature: Your FF XIV Character in Dashboard</h2>
-            <p>If logged with Discord and connected your Character on FF XIV Collect, a card will show with infos taken from the Lodestone.
-              <br/>''Get Character data by Lodestone ID''' is in development aswell.             
+            <h2>New Feature: Search FF XIV Characters</h2>
+            <p>Users can now search Characters by writing Name and Server, displayed infos are taken from the Lodestone.            
             </p>
-            <p>Date: May 03, 2024</p>
+            <p>Date: May 04, 2024</p>
             <hr/>
           </div>
           <div className={styles.newsItem}>

@@ -34,3 +34,10 @@ Content-Type: application/json
 
 GET {{host}}/discordCharacters/222103176621326336
 Content-Type: application/json
+
+###
+
+#GET Lodestone Id
+
+GET {{host}}/lodestoneId/?player=Hixyllian%20Sin%27light&server=Ragnarok
+Content-Type: application/json

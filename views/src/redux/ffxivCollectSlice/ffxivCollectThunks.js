@@ -41,8 +41,8 @@ export const fetchFashions = createAsyncThunk('fashions/fetchFashions', async ()
     return response.data;
   });
 
-export const fetchDiscordChar = createAsyncThunk('characters/fetchDiscordChar', async (discordId) => {
-  const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/discordCharacters/${discordId}`, {
+export const fetchLodestoneChar = createAsyncThunk('characters/lodestoneId', async (data) => {
+  const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/lodestoneId/?player=${encodeURIComponent(data.name)}&server=${encodeURIComponent(data.server)}`, {
   });
   return response.data;
 });

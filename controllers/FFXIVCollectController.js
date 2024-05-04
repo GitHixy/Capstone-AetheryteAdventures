@@ -142,24 +142,22 @@ const fetchFashions = async (req, res) => {
   }
 };
 
-const fetchDiscordChar = async (req, res) => {
-    const {discordId} = req.params;
-    const url = `${process.env.FFXIV_COLLECT_BASE_URL}/users/${discordId}`
-    const config = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: url,
-      headers: {},   
-  };
-  console.log("Making API request to:", url);
-  try {
-    const response = await axios(config);
-    res.send(response.data);
-  } catch (e) {
-    res
+const getID = async (req, res) => {
+
+const {player, server} = req.query;
+try {
+  const response = await axios.get(`${process.env.FFXIV_KALILISTIC_BASE_URL}/player?playerName=${player}&worldName=${server}`);
+  const lodestoneId = response.data.lodestoneId;
+
+  const lodestoneChar = await axios.get(`${process.env.FFXIV_COLLECT_BASE_URL}/characters/${lodestoneId}`)
+  res.send({
+    lodestoneChar: lodestoneChar.data
+  });
+} catch (e) {
+  res
       .status(500)
-      .json({ message: "Failed to fetch Discord Character", details: e.message });
-  }
+      .json({ message: "Failed to fetch ID Character", details: e.message });
+}
 }
 
 module.exports = {
@@ -171,5 +169,5 @@ module.exports = {
   fetchTriadCards,
   fetchEmotes,
   fetchFashions,
-  fetchDiscordChar
+  getID
 };
