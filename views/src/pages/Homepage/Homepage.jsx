@@ -60,6 +60,7 @@ const Homepage = () => {
       />
      
       <button onClick={handleSearch}>Search</button>
+     
       
     </div>
 
@@ -120,7 +121,10 @@ const Homepage = () => {
           </>
         ) : (null)}
 
+  
+
   <div className={styles.container}>
+   
     <div className={styles.newsContainer}>
   <h2 className={styles.headTitle}>- Latest News from The Lodestone -</h2>
   {news.filter(item => item.image)

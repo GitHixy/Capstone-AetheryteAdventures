@@ -11,6 +11,7 @@
 
 .content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -20,4 +21,10 @@
     color: #fff;
     padding: 5px;
     border-radius: 5px;
+}
+
+.content img {
+  opacity: 0.9;
+  width: 50%;
+  border-radius: 20px;
 }

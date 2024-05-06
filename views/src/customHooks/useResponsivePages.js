@@ -20,8 +20,12 @@ const useResponsivePages = (defaultSize = 8) => {
                 setResultsPerPage(8);
             } else if (width >= 2470 && width < 2740) {
                 setResultsPerPage(8);
-            } else if (width >= 2740) {
+            } else if (width >= 2740 && width < 3110) {
                 setResultsPerPage(20);
+            }else if (width >= 3110 && width < 3390) {
+                setResultsPerPage(22);
+            }else if (width >= 3390) {
+                setResultsPerPage(24);
             } else {
                 setResultsPerPage(defaultSize);
             }

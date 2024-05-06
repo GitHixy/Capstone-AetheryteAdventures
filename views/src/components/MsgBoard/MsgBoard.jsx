@@ -35,7 +35,7 @@ const MsgBoard = () => {
         <li key={index} className={styles.message}>[{formatDate(msg.createdAt)}] <br/> <strong>{msg.username}</strong> : {msg.messageText} </li>
       ))}
     </ul>
-    <form onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <input
         type="text"
         value={newMessage}

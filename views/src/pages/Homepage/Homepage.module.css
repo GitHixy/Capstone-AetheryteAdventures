@@ -1,27 +1,34 @@
 .container {
+    border-block: 1px solid white;
     display: flex;
     flex-direction: row;
     align-items: flex-start ;
     width: 100%;
+    
 }
 
 .newsContainer, .maintenanceContainer {
-    width: 50%;
+    
+    width: 50%;  
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .searchContainer {
+    background: url('../../assets/searchBg.png') center/cover no-repeat;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+    border-block: 1px solid white;
 }
 
 .searchContainer h2 {
     color: #fff;
+    filter: drop-shadow(0px 1px 1px #000);
 }
 
 .searchContainer input[type="text"] {
@@ -35,7 +42,7 @@
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
-    background-color: transparent;
+    background-color: #000;
 }
 .searchContainer button:hover {
     border: 1px solid #000;
@@ -45,6 +52,8 @@
 }
 
 .searchResultsContainer {
+    background: url('../../assets/cardBG.gif') center/cover no-repeat;
+    background-color: #000; 
 width: 100%;
 display: flex;
 justify-content: center;
@@ -58,7 +67,8 @@ color: #fff;
     margin-bottom: 10px;
 }
 .lodestoneCharCard {
-    box-shadow: 0 8px 8px 8px  rgba(242, 242, 243, 0.1);
+    
+    
     display: flex;
     align-items: center;
     background-color: none;
@@ -69,6 +79,7 @@ color: #fff;
   }
   .lodestoneCharInfo {
     width: 100%;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,15 +87,17 @@ color: #fff;
     margin-left: 20px;
   }
   .lodestoneCharInfo p {
+    filter: drop-shadow(0px 1px 1px #000);
     color: #fff;
     margin: 8px;
   }
 
   .portrait {
    width: 100%;
+   opacity: 0.9;
    max-width: 300px;
    border-radius: 30px;
-   filter: drop-shadow(1px 1px 5px white)
+   filter: drop-shadow(1px 1px 5px white);
   }
 
   .avatar {
@@ -96,7 +109,8 @@ color: #fff;
     border: 3px solid #ddd;
   }
   #disclaimer {
-    color: rgba(255, 0, 0, 0.534);
+    filter: drop-shadow(0px 1px 1px #000);
+    color: rgba(255, 0, 0, 0.966);
   }
   .sectionContainer {
     border: 1px solid #fff;
@@ -135,6 +149,6 @@ color: #fff;
     to { opacity: 1; }
 }
 
-.searchResultsContainer {
-    animation: fadeIn 1.5s ease-in-out;
+.searchResultsContainer, .searchContainer {
+    animation: fadeIn 3.5s ease-in-out;
 }

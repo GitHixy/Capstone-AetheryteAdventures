@@ -100,5 +100,19 @@ li img {
     display: none;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+
+  .toggleButton {
+    animation: fadeIn 1.5s ease-in-out;
+  }
 
 

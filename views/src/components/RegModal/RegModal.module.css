@@ -101,3 +101,23 @@ input[type="file"]:hover {
         opacity: 1;
     }
 }
+
+@media (max-width: 1000px) {
+    .modal {
+        max-width: 60%;
+    }
+    form {
+    width: 80%;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .modal {
+        max-width: 60%;
+    }
+    form {
+    width: 80%;
+    }
+   
+}

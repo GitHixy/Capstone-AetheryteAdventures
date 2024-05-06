@@ -15,7 +15,8 @@ html, body {
 }
 
 #root {
-  background: linear-gradient(180deg, #090913 0%, #181831 100%);
+  background:
+  linear-gradient(180deg, #090913 0%, #181831 100%);
   display: flex;
   flex-direction: column;
   min-height: 100vh; 

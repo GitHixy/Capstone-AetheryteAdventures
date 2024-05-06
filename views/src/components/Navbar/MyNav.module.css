@@ -117,6 +117,35 @@
   padding-block: 5px;
 }
 
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(15px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+@keyframes fadeLogo {
+  from {
+      opacity: 0;
+      transform: translateY(-30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.logo {
+  animation: fadeLogo 1.5s ease-in-out;
+}
+
+.navbar {
+  animation: fadeIn 1.5s ease-in-out;
+}
+
 /* Media Queries */
 
 @media (max-width: 800px) {

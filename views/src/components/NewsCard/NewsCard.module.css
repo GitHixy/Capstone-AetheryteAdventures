@@ -87,6 +87,9 @@
 .title, .description {
     animation: fadeIn 0.8s ease-out;
 }
+.card {
+    animation: fadeIn 1.5s ease-in-out;
+}
 
 
 /* Media Queries */
