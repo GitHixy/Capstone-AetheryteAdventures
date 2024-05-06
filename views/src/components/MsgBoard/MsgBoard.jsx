@@ -28,8 +28,10 @@ const MsgBoard = () => {
   });
 
   return (
+    <div className={styles.msgBoardContainer}>
+      <h2>- Adventurers Board -</h2>
     <div className={styles.msgBoard}>
-    <h2>- Adventurers Board -</h2>
+    
     <ul className={styles.messagesList}>
       {displayedMessages.map((msg, index) => (
         <li key={index} className={styles.message}>[{formatDate(msg.createdAt)}] <br/> <strong>{msg.username}</strong> : {msg.messageText} </li>
@@ -48,6 +50,7 @@ const MsgBoard = () => {
     {status === 'loading' && <p>Loading...</p>}
     {error && <p className={styles.error}>{error}</p>}
    
+  </div>
   </div>
   );
 }

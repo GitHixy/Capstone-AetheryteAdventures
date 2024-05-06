@@ -28,7 +28,9 @@
 
 .searchContainer h2 {
     color: #fff;
-    filter: drop-shadow(0px 1px 1px #000);
+    background-color: #000;
+    width: 100%;
+    padding-block: 2px;
 }
 
 .searchContainer input[type="text"] {

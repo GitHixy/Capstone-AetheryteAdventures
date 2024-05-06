@@ -45,7 +45,7 @@ const Homepage = () => {
   {userId && token ? (<MsgBoard />) : (null)}
 
   <div className={styles.searchContainer}>
-      <h2>Search Lodestone Character</h2>
+      <h2>- Search Lodestone Character -</h2>
       <input
         type="text"
         value={name}
