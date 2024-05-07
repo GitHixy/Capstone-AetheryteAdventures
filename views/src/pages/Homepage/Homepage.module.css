@@ -4,7 +4,7 @@
     flex-direction: row;
     align-items: flex-start ;
     width: 100%;
-    
+    background: url('../../assets/BaseBG.jpg') center/cover no-repeat;
 }
 
 .newsContainer, .maintenanceContainer {
@@ -63,6 +63,9 @@ color: #fff;
 }
 
 .headTitle {
+    background-color: #000;
+    padding-block: 2px;
+    width: 100%;
     color: #fff;
     margin-bottom: 0;
     font-size: 30px;

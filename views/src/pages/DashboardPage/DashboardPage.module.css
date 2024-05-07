@@ -1,13 +1,25 @@
 .dashboardContainer {
+    border-block: 1px solid #fff;
+    
     color: #fff;
-    padding: 20px;
+    padding-block: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: url('../../assets/BaseBG.jpg') center/cover no-repeat;
+}
+
+.dashboardContainer h1 {
+    background-color: #000;
+    padding-block: 2px;
+    width: 100%;
+    text-align: center; 
 }
 
 .userCard {
+    background:
+    linear-gradient(180deg, #090913 0%, #181831 100%);
     color: #fff;
     box-shadow: 0 8px 8px 8px  rgba(242, 242, 243, 0.1);
     transition: 0.3s;
@@ -39,22 +51,32 @@
     color: #fff;
 }
 
+.savedTitle {
+    background-color: #000;
+    padding-block: 2px;
+    width: 100%;
+}
+
 .collectibleItem {
-    background: #f9f9f9;
-    width: 50%;
+    background: #d4d3d3ee;
+    height: 150px;
     padding: 15px;
-    margin-bottom: 10px;
+    margin: 10px;
+    border-radius: 20px;
     border-left: 5px solid #ff0000;
     border-right: 5px solid #ff0000;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    flex: 1 1 20%; 
+    max-width: 20%;
 }
 
 .collectibleItem:hover {
     background: #f0f0f0;
-    transform: translateX(5px);
+    transform: scaleX(1.05);
 }
 
 .collectibleName {
@@ -79,11 +101,19 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: center;  
     flex-wrap: wrap;
-    width: 50%;
+    width: 100%;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.dashboardContainer {
+    animation: fadeIn 3.5s ease-in-out;
+}
 
 /* Media Query */
 @media (max-width: 800px) {

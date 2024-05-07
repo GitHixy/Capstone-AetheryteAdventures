@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-block: 1px solid #fff;
+    background: url('../../assets/BaseBG.jpg') center/cover no-repeat;
 }
 
 .emotesGrid {

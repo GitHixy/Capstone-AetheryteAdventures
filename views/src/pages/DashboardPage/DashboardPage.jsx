@@ -76,7 +76,7 @@ const DashboardPage = () => {
         ) : (
           <p>Something Went Wrong</p>
         )} 
-        {collectibles && <h2>Items You've Saved</h2>}
+        {collectibles && <h2 className={styles.savedTitle}>Items You've Saved</h2>}
 
         <div className={styles.itemsContainer}>
           {Object.keys(collectibles).map(

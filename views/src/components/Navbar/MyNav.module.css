@@ -130,7 +130,7 @@
 @keyframes fadeLogo {
   from {
       opacity: 0;
-      transform: translateY(-30px);
+      transform: translateY(-350px);
   }
   to {
       opacity: 1;
@@ -139,7 +139,7 @@
 }
 
 .logo {
-  animation: fadeLogo 1.5s ease-in-out;
+  animation: fadeLogo 2.0s ease-in-out;
 }
 
 .navbar {

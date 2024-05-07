@@ -7,9 +7,12 @@
     padding-inline: 0;
     padding-block: 30px;
     overflow:hidden;
-    border-top: 1px solid white;
+    border-top: 3px solid white;
 }
 .bookContainer h2 {
+    background-color: #000;
+    padding-block: 2px;
+    width: 100%;
     color: #fff;
     font-size: 30px;
     margin-bottom: 2px;
@@ -17,6 +20,9 @@
 }
 
 .bookContainer p {
+    background-color: #000;
+    padding-block: 2px;
+    width: 100%;
     color: #fff;
     margin-bottom: 10px;
     text-align: center;
@@ -34,3 +40,24 @@
 .bookContainer {
     animation: fadeIn 2s ease-in-out;
 }
+
+#arr {
+background: url('../../assets/arr.jpg') center/cover no-repeat;
+}
+
+#heavensward {
+    background: url('../../assets/hvws.jpg') center/cover no-repeat;
+}
+
+#stormblood {
+    background: url('../../assets/storm.jpg') center/cover no-repeat;
+}
+
+#shadowbringers {
+    background: url('../../assets/shadw.jpg') center/cover no-repeat;
+}
+
+#endwalker{
+    background: url('../../assets/endwalk.jpg') center/cover no-repeat;
+}
+
