@@ -8,6 +8,7 @@ import styles from './BooksPage.module.css';
 
 
 const BooksPage = () => {
+   
 
     return(
 <>
@@ -17,7 +18,8 @@ const BooksPage = () => {
 <div className={styles.bookContainer} id={styles.arr}>
     <h2>FF XIV - A Realm Reborn</h2>
     <p>The Story Summary - Texts by Vrykerion <br/> The following is a crash course for the plot of Final Fantasy XIV: A Realm Reborn. <span>IT CONTAINS SPOILERS</span> , it does not have any sort of personal insight, <br/>and is mainly meant as a tool for those who have skipped, forgotten, or want a refresher on the major plot points of the Realm Reborn narrative.</p>
-<Book className={styles.singleBook} lorePages={lorePagesVol1}/>
+<Book  className={styles.singleBook} lorePages={lorePagesVol1}/>
+
 </div>
 <div className={styles.bookContainer} id={styles.heavensward}>
     <h2>FF XIV - Heavensward</h2>

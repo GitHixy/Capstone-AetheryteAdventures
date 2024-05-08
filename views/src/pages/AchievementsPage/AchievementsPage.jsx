@@ -23,7 +23,7 @@ const AchievementsPage = () => {
 
 
     const [searchTerm, setSearchTerm] = useState('');
-    const resultsPerPage = useResponsivePages(8);
+    const resultsPerPage = useResponsivePages();
     const totalResults = achievements?.results ?? [];
     const filteredAchievements = searchTerm
       ? totalResults.filter(achievement =>

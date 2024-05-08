@@ -8,6 +8,18 @@
     width: 30%;
     margin: 30px auto;
     
+    
+}
+
+.pageContainer {
+    background: url('../../assets/BaseBG.jpg') center/cover no-repeat;
+    border-block: 1px solid #fff;
+}
+
+.pageContainer h2 {
+    width: 100%;
+    padding-block: 2px;
+    background-color: #000;
 }
 
 .form {
@@ -102,6 +114,8 @@
 }
 
 .disclaimer p {
+    background-color: #000;
+    padding-block: 5px;
     color: #fff;
 }
 

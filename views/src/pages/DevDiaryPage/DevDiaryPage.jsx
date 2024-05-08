@@ -15,6 +15,14 @@ const DevDiaryPage = () => {
         <div className={styles.newsFeed}>
           <h1 className={styles.header}>- Development Diary -</h1>
           <div className={styles.newsItem}>
+            <h2>Bug Fixes</h2>
+            <p>Resolved responsive errors on Codex Pages and Dashboard. <br/>
+              Added 'Back to Start' buttons on Book of Knowledge section.            
+            </p>
+            <p>Date: May 08, 2024</p>
+            <hr/>
+          </div>
+          <div className={styles.newsItem}>
             <h2>New Feature: Search FF XIV Characters</h2>
             <p>Users can now search Characters by writing Name and Server, displayed infos are taken from the Lodestone.            
             </p>

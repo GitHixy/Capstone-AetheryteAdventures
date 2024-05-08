@@ -34,6 +34,7 @@ const LoreGenPage = () => {
     <>
     <MyNav/>
     <Sidebar/>
+    <div className={styles.pageContainer}>
     <h2 className={styles.genTitle}>- Generate Your Lore -</h2>
     <div className={styles.container}>
     <form onSubmit={handleSubmit} className={styles.form}>
@@ -83,6 +84,7 @@ const LoreGenPage = () => {
 </div>
 <div className={styles.disclaimer}>
             <p>This generator is powered by OpenAI's GPT-3.5 Turbo. <br/> While we strive for accuracy, the generated content may not always reflect current or factual information. Use at your own risk.</p>
+        </div>
         </div>
 <MyFooter/>
 </>

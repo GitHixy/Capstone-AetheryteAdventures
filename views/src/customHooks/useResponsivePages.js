@@ -4,32 +4,18 @@ const useResponsivePages = (defaultSize = 8) => {
     const [resultsPerPage, setResultsPerPage] = useState(defaultSize);
 
     useEffect(() => {
-        function handleResize() {
+        const handleResize = () => {
             const width = window.innerWidth;
-            if (width < 500) {
-                setResultsPerPage(4);
-            } else if (width < 1120) {
-                setResultsPerPage(6);
-            } else if (width >= 1390 && width < 1660) {
-                setResultsPerPage(10);
-            } else if (width >= 1660 && width < 1930) {
-                setResultsPerPage(12);
-            } else if (width >= 1930 && width < 2200) {
-                setResultsPerPage(6);
-            } else if (width >= 2200 && width < 2470) {
-                setResultsPerPage(8);
-            } else if (width >= 2470 && width < 2740) {
-                setResultsPerPage(8);
-            } else if (width >= 2740 && width < 3110) {
-                setResultsPerPage(20);
-            }else if (width >= 3110 && width < 3390) {
-                setResultsPerPage(22);
-            }else if (width >= 3390) {
-                setResultsPerPage(24);
+            if (width < 768) {
+                setResultsPerPage(4); 
+            } else if (width < 1024) {
+                setResultsPerPage(8); 
+            } else if (width < 1440) {
+                setResultsPerPage(16);
             } else {
-                setResultsPerPage(defaultSize);
+                setResultsPerPage(32); 
             }
-        }
+        };
 
         handleResize();
         window.addEventListener('resize', handleResize);
