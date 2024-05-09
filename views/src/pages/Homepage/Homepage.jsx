@@ -22,7 +22,7 @@ const Homepage = () => {
   const userId = useSelector((state)=> state.login.id)
   const searchData = useSelector((state) => state.lodestoneChar.data.lodestoneChar)
   const searchStatus = useSelector((state) => state.lodestoneChar.status)
-  console.log(searchData)
+  
 
   const handleSearch = () => {
     const data = {name: name, server: server};

@@ -11,7 +11,7 @@ const Book = ({ lorePages }) => {
     width={300} 
     height={500} 
     showCover={true} 
-    usePortrait={false} 
+    usePortrait={true} 
     size="stretch"
     minWidth={280}
     maxWidth={500}
@@ -25,6 +25,7 @@ const Book = ({ lorePages }) => {
          src={page.content}
          alt={`Page ${index + 1}`}      
        />
+       
      
       ))}
     </HTMLFlipBook>

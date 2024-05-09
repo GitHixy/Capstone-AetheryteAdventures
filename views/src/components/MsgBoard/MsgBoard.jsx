@@ -8,7 +8,7 @@ const MsgBoard = () => {
   const dispatch = useDispatch();
   const { messages, status, error } = useSelector((state) => state.messages);
   const username = localStorage.getItem('username');
-  const displayedMessages = messages.slice(-10);
+  const displayedMessages = messages.slice(-5);
 
   useEffect(() => {
     dispatch(fetchMessages());
