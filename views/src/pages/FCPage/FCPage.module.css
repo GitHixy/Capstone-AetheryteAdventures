@@ -8,7 +8,13 @@
     align-items: center;
     
   }
+
+  .header {
+    width: 100%;
+  }
+
   .header img{
+    width: 100%;
     border-bottom: 3px solid white;
   }
   .section {
@@ -35,6 +41,34 @@
     line-height: 1.6;
     color: #000;
     font-weight: bold;
+  }
+
+  .btnBack {
+    background-color: #e2b714;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 1s ease-out;
+  }
+
+  .btnBack:hover {
+    background-color: #d10d0d;
+    transform: translateY(-2px);
+  }
+  
+  .btnBack:active {
+    background-color: #b5890b;
+    transform: translateY(0);
+  }
+  
+  .btnBack:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(226, 183, 20, 0.5);
   }
   
   .links {

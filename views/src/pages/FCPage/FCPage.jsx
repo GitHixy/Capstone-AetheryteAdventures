@@ -1,9 +1,14 @@
 import React from 'react'
 import styles from './FCPage.module.css';
+import { useNavigate } from 'react-router-dom';
 import headImg from '../../assets/Header.png';
 
 
 const FCPage = () => {
+  const navigate = useNavigate();
+
+  const backToWebsite = () => navigate('/');
+
   return (
     <>
 <div className={styles.fcPageContainer}>
@@ -33,7 +38,7 @@ we remain fervent in our pursuit of all the wonders a game may unveil. <br/> At 
         </div>
         <p>Alternatively, you may also reach out to Giggle Storm or Hixyllian Sin'light for further inquiries directly in game.</p>
       </section>
-
+      <button onClick={backToWebsite} className={styles.btnBack}>Back to ''Aetheryte Adventures''</button>
     </div>
 
     </>
