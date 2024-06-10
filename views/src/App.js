@@ -16,6 +16,7 @@ import BooksPage from "./pages/BookPage/BooksPage";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import DevDiaryPage from "./pages/DevDiaryPage/DevDiaryPage";
 import SuccessPage from "./pages/SuccessPage/SuccessPage";
+import FCPage from "./pages/FCPage/FCPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./customCSS/toastsMod.css";
@@ -48,6 +49,7 @@ function App() {
         <Route path="/triad/cards" element={<TriadCardsPage />} />
         <Route path="/emotes" element={<EmotesPage />} />
         <Route path="/loreGenerator" element={<LoreGenPage/>} />
+        <Route path="/aeterna-rebellio" element={<FCPage/>} />
         <Route path="/fashions" element={<FashionsPage/>} />
         <Route path="/books" element={<BooksPage/>} />
         <Route path="/dashboard/:id" element={<DashboardPage/>} />
