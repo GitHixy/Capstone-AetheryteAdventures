@@ -36,7 +36,7 @@ we remain fervent in our pursuit of all the wonders a game may unveil. <br/> At 
         <h2>Contacts</h2>
         <div className={styles.links}>
             
-            <a href="https://eu.finalfantasyxiv.com/lodestone/community_finder/cdb728aeddbebffb1b3e07aa78de49ce9bfd7375/" target="_blank" rel="noopener noreferrer">- Lodestone Recruitment Page -</a>
+            <a href="https://eu.finalfantasyxiv.com/lodestone/community_finder/cdb728aeddbebffb1b3e07aa78de49ce9bfd7375/" target="_blank" rel="noopener noreferrer">- Recruitment Page -</a>
             <a href="https://discord.gg/aU3SUv6MyF" target="_blank" rel="noopener noreferrer">- Discord Channel -</a>
           
         </div>
