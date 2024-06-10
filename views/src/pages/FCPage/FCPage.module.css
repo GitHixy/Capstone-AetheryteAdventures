@@ -1,7 +1,7 @@
 .fcPageContainer {
     font-family: 'Lato', sans-serif;
     color: #fff;
-    background: url('../../assets/FCPageBG.jpeg') no-repeat center center fixed;
+    background: url('../../assets/FCPageBG.png') no-repeat center fixed;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -15,12 +15,12 @@
 
   .header img{
     width: 100%;
-    border-bottom: 3px solid white;
+    border-block: 3px solid white;
   }
   .section {
     width: 80%;
     max-width: 800px;
-    margin: 20px 0;
+    margin: 10px 0;
     padding: 20px;
     border-radius: 15px;
     background-color: rgb(255, 255, 255, 0.8);
@@ -43,8 +43,24 @@
     font-weight: bold;
   }
 
+  .sectionImg {
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+  }
+
+  .sectionImg img {
+    width: 40%;
+    -webkit-box-shadow: 0px -2px 26px 0px rgb(255, 255, 255, 0.8);
+    -moz-box-shadow: 0px -2px 26px 0px rgb(255, 255, 255, 0.8);
+    box-shadow: 0px -2px 26px 0px rgb(255, 255, 255, 0.8);
+  }
+
   .btnBack {
-    background-color: #e2b714;
+  background-color: #e2b714;
   color: #fff;
   border: none;
   padding: 12px 24px;
@@ -54,6 +70,7 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   animation: fadeInUp 1s ease-out;
+  margin-block: 10px;
   }
 
   .btnBack:hover {
@@ -69,6 +86,11 @@
   .btnBack:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(226, 183, 20, 0.5);
+  }
+
+  .altP {
+    font-weight: bolder;
+    text-decoration: underline;
   }
   
   .links {
