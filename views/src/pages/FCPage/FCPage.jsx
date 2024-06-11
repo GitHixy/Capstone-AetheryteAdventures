@@ -1,6 +1,8 @@
 import React from 'react'
 import styles from './FCPage.module.css';
 import { useNavigate } from 'react-router-dom';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import MyFooter from '../../components/Footer/MyFooter';
 import headImg from '../../assets/Header.png';
 import img1 from '../../assets/imgFC/img1.png';
 import img2 from '../../assets/imgFC/img2.png';
@@ -11,10 +13,9 @@ import img4 from '../../assets/imgFC/img4.png';
 const FCPage = () => {
   const navigate = useNavigate();
 
-  const backToWebsite = () => navigate('/');
-
   return (
     <>
+    <Sidebar/>
 <div className={styles.fcPageContainer}>
       <header className={styles.header}>
         <img src={headImg} alt="Header"/>
@@ -49,9 +50,8 @@ we remain fervent in our pursuit of all the wonders a game may unveil. <br/> At 
         <img src={img3} alt="img3" />
         <img src={img4} alt="img4" />
       </div>
-      <button onClick={backToWebsite} className={styles.btnBack}>Back to ''Aetheryte Adventures'' Website</button>
     </div>
-
+    <MyFooter/>
     </>
   )
 }

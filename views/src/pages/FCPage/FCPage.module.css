@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-bottom: 3px solid white;
     
   }
 
@@ -44,12 +45,13 @@
   }
 
   .sectionImg {
-    margin-top: 5px;
+    margin-block: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 5px;
     width: 100%;
+
   }
 
   .sectionImg img {

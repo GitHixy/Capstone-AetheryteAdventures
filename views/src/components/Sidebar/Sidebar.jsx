@@ -30,6 +30,7 @@ function Sidebar() {
     const handleFashions = () => navigate('/fashions');
     const handleLoreBooks = () => navigate('/books');
     const handleFC = () => navigate('/aeterna-rebellio');
+    const handleHome = () => navigate('/');
 
     const toggleButtonStyle = {
         left: isOpen ? '180px' : '0px', 
@@ -42,6 +43,7 @@ function Sidebar() {
     </button>
         <div className={isOpen ? styles.sidebarOpen : styles.sidebarClosed}>
             <img className={styles.sideImg} src={logo} alt="LogoAA" />
+            <div className={styles.titleHome}><hr/><h4  onClick={handleHome}>Return Home</h4></div>
             <div className={styles.title}><hr/><h4>Codex</h4><hr/></div>
             <ul>
                 <li><a onClick={handleAchievements}><img src={achiIcon} alt="Achievements Icon" />{isOpen && <span>Achievements</span>}</a></li>
