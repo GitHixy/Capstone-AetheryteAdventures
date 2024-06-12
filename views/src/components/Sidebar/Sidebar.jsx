@@ -29,7 +29,7 @@ function Sidebar() {
     const handleLoreGen = () => navigate('/loreGenerator');
     const handleFashions = () => navigate('/fashions');
     const handleLoreBooks = () => navigate('/books');
-    const handleFC = () => navigate('/aeterna-rebellio');
+    const handleFC = () => navigate('/FCRecruitment');
     const handleHome = () => navigate('/');
 
     const toggleButtonStyle = {
@@ -59,7 +59,7 @@ function Sidebar() {
             <ul>
             <li><a onClick={handleLoreBooks}><img src={loreBooksIcon} alt="Books Icon" />{isOpen && <span>Books of Knowledge</span>}</a></li>
             <li><a onClick={handleLoreGen}><img src={loreIcon} alt="Lore Icon" />{isOpen && <span>Lore Generator</span>}</a></li>
-            <li><a onClick={handleFC}><img src={fcIcon} alt="FC Icon" />{isOpen && <span>Aeterna Rebellio [FC]</span>}</a></li>
+            <li><a onClick={handleFC}><img src={fcIcon} alt="FC Icon" />{isOpen && <span>FC Recruitment</span>}</a></li>
             </ul>
         </div>
         </>

@@ -1,0 +1,16 @@
+.pageContainer {
+    background: url('../../assets/BaseBG.jpg') center no-repeat;
+}
+
+.headTitle {
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 4px 4px #000;
+    background-color: #000;
+    padding-block: 2px;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+}
