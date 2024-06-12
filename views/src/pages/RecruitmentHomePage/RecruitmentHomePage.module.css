@@ -1,5 +1,5 @@
 .pageContainer {
-    background: url('../../assets/BaseBG.jpg') center no-repeat;
+    background: url('../../assets/BaseBG.jpg') center/cover no-repeat;
 }
 
 .headTitle {
