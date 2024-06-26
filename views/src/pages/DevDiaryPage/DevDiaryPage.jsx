@@ -15,6 +15,14 @@ const DevDiaryPage = () => {
         <div className={styles.newsFeed}>
           <h1 className={styles.header}>- Development Diary -</h1>
           <div className={styles.newsItem}>
+            <h2>'FC Recruitment' feature added </h2>
+            <p>Browse FC's that are recruiting new players. <br/> 
+            Want to add your FC? Contact 'hixy1992' on Discord.         
+            </p>
+            <p>Date: June 25, 2024</p>
+            <hr/>
+          </div>
+          <div className={styles.newsItem}>
             <h2>Bug Fixes</h2>
             <p>Resolved responsive errors on Codex Pages and Dashboard. <br/>
               Added 'Back to Start' buttons on Book of Knowledge section.            
@@ -48,13 +56,13 @@ const DevDiaryPage = () => {
             <hr/>
           </div>
           <div className={styles.newsItem}>
-            <h2>'Book of Knowledge' session added</h2>
+            <h2>'Book of Knowledge' feature added</h2>
             <p>Added section with summary of FF XIV story divided by expansion.</p>
             <p>Date: April 27, 2024</p>
             <hr/>
           </div>
           <div className={styles.newsItem}>
-            <h2>'Lore Generator' session added</h2>
+            <h2>'Lore Generator' feature added</h2>
             <p>Added section with Lore Generator connected to OpenAI's GPT-3.5 Turbo.</p>
             <p>Date: April 26, 2024</p>
             <hr/>
