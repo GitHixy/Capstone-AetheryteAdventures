@@ -48,6 +48,14 @@ margin-block: 20px;
     font-size: 25px;
     color: #fff;
 }
+.countdown {
+    background-color: #000;
+    padding: 3px;
+    color: #fff;
+    text-align: center;
+    margin-block: 10px;
+    font-weight: bold;
+}
 
 
 @keyframes fadeIn {

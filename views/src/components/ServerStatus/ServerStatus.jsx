@@ -5,21 +5,33 @@ import styles from './ServerStatus.module.css';
 const ServerStatus = () => {
     const [regionStatuses, setRegionStatuses] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [countdown, setCountdown] = useState(60);
 
-    useEffect(() => {
     const getServerStatuses = async () => {
         try {
-            const statuses = await fetchServerStatus();
-            setRegionStatuses(statuses);
+          setLoading(true);
+          const statuses = await fetchServerStatus();
+          setRegionStatuses(statuses);
         } catch (error) {
-            console.error('Errore fetching server statuses:', error);
+          console.error('Error fetching server statuses:', error);
         } finally {
-            setLoading(false);
+          setLoading(false);
+          setCountdown(60); 
         }
-    }
-
-    getServerStatuses();
-    }, []);
+      };
+    
+      useEffect(() => {
+        getServerStatuses();
+        const interval = setInterval(getServerStatuses, 60000); 
+        return () => clearInterval(interval); 
+      }, []);
+    
+      useEffect(() => {
+        if (countdown > 0) {
+          const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+          return () => clearTimeout(timer); 
+        }
+      }, [countdown]);
 
     if (loading) {
         return <><div className={styles.bg}>
@@ -50,6 +62,9 @@ const ServerStatus = () => {
                 </div>
             ))}
         </div>
+        <div className={styles.countdown}>
+        Refreshing in {countdown} Seconds
+      </div>
         </div>
         </>
     );
