@@ -22,6 +22,7 @@ const favsEmoteRoutes = require('./routes/favsEmoteRoutes');
 const favsFashionRoutes = require('./routes/favsFashionRoutes');
 const messageRoutes = require('./routes/messageRoutes');
 const discordRoutes = require('./routes/discordAuthRoutes');
+const serverStatusRoutes = require('./routes/serverStatusRoutes');
 
 
 
@@ -59,6 +60,7 @@ app.use('/', loginRoutes);
 app.use('/', lodestoneNewsRoutes);
 app.use('/', ffxivCollectRoutes);
 app.use('/api', loreRoutes);
+app.use('/api', serverStatusRoutes);
 app.use('/', allFavsRoutes);
 app.use('/', favsAchiRoutes);
 app.use('/', favsTitleRoutes);

@@ -15,6 +15,13 @@ const DevDiaryPage = () => {
         <div className={styles.newsFeed}>
           <h1 className={styles.header}>- Development Diary -</h1>
           <div className={styles.newsItem}>
+            <h2>'Server Status' feature added </h2>
+            <p>Check EU, NA, JP and OC Server Status on Homepage   
+            </p>
+            <p>Date: July 17, 2024</p>
+            <hr/>
+          </div>
+          <div className={styles.newsItem}>
             <h2>'FC Recruitment' feature added </h2>
             <p>Browse FC's that are recruiting new players. <br/> 
             Want to add your FC? Contact 'hixy1992' on Discord.         

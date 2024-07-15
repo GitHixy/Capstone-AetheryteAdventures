@@ -7,6 +7,7 @@ import NewsCard from "../../components/NewsCard/NewsCard";
 import MaintenanceCard from "../../components/MaintenanceCard/MaintenanceCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import MsgBoard from "../../components/MsgBoard/MsgBoard";
+import ServerStatus from "../../components/ServerStatus/ServerStatus";
 import { fetchLodestoneChar } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
 import {useSelector, useDispatch} from 'react-redux';
 import { useAuth } from '../../customHooks/useAuth';
@@ -42,6 +43,8 @@ const Homepage = () => {
   <>
   <MyNav />
   <Sidebar />
+  <ServerStatus />
+
   {userId && token ? (<MsgBoard />) : (null)}
 
   <div className={styles.searchContainer}>
@@ -121,7 +124,7 @@ const Homepage = () => {
           </>
         ) : (null)}
 
-  
+
 
   <div className={styles.container}>
    

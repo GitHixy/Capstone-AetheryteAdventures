@@ -1,0 +1,56 @@
+.bg {
+    width: 100%;
+    border-top: 1px solid #fff;
+    background: url('../../assets/ffxiv_dx11\ 2024-07-01\ 19-33-51.png') center/cover no-repeat;
+    
+}
+.serverStatusContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    color: #fff;
+    animation: fadeIn 2.5s ease-in-out;
+    
+}
+
+.serverTitle {
+    background-color: #000;
+    padding: 2px;
+    color: #fff;
+}
+
+.region {
+    text-align: center;
+    margin-bottom: 20px;
+    background: #0000008e;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.datacenter {
+    margin: 10px 0;
+    gap: 5px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.online {
+    color: green;
+}
+
+.offline {
+    color: red;
+}
+
+.loading {
+margin-block: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #fff;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
