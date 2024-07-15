@@ -44,6 +44,7 @@ statusRouter.get('/server-status', async (req, res) => {
                 const datacenterStatuses = await Promise.all(
                     region.datacenters.map(async (datacenter) => {
                         const isAlive = await ping.promise.probe(datacenter.ip);
+                        console.log(`Ping to ${datacenter.name} (${datacenter.ip}): ${isAlive.alive ? 'online' : 'offline'}`);
                         return {
                             name: datacenter.name,
                             ip: datacenter.ip,
