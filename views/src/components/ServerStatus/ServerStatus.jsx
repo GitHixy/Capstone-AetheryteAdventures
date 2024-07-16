@@ -53,9 +53,10 @@ const ServerStatus = () => {
                         {region.datacenters.map((datacenter) => (
                             <li key={datacenter.ip} className={styles.datacenter}>
                                 <span>{datacenter.name}</span>:
-                                <span className={datacenter.status === 'online' ? styles.online : styles.offline}>
+                                <span className={datacenter.status === 'Online' ? styles.online : styles.offline}>
                                      {datacenter.status}
                                 </span>
+                                <span>- {datacenter.latency} ms</span>
                             </li>
                         ))}
                     </ul>
