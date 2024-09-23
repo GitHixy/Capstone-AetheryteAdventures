@@ -8,7 +8,7 @@ import MaintenanceCard from "../../components/MaintenanceCard/MaintenanceCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import MsgBoard from "../../components/MsgBoard/MsgBoard";
 import ServerStatus from "../../components/ServerStatus/ServerStatus";
-import { fetchLodestoneChar } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
+// import { fetchLodestoneChar } from "../../redux/ffxivCollectSlice/ffxivCollectThunks";
 import {useSelector, useDispatch} from 'react-redux';
 import { useAuth } from '../../customHooks/useAuth';
 import { fetchNews, fetchMaintenance } from "../../redux/lodestoneSlice/lodestoneSlice";
@@ -18,17 +18,17 @@ const Homepage = () => {
   const dispatch = useDispatch();
   const {maintenance, news, status, error} = useSelector(state => state.lodestone);
   const {token} = useAuth();
-  const [name, setName] = useState('');
-  const [server, setServer] = useState('');
+  // const [name, setName] = useState('');
+  // const [server, setServer] = useState('');
   const userId = useSelector((state)=> state.login.id)
-  const searchData = useSelector((state) => state.lodestoneChar.data.lodestoneChar)
-  const searchStatus = useSelector((state) => state.lodestoneChar.status)
+  // const searchData = useSelector((state) => state.lodestoneChar.data.lodestoneChar)
+  // const searchStatus = useSelector((state) => state.lodestoneChar.status)
   
 
-  const handleSearch = () => {
-    const data = {name: name, server: server};
-  dispatch(fetchLodestoneChar(data));
-  }
+  // const handleSearch = () => {
+  //   const data = {name: name, server: server};
+  // dispatch(fetchLodestoneChar(data));
+  // }
 
   useEffect(() => {
     dispatch(fetchNews());
@@ -47,7 +47,7 @@ const Homepage = () => {
 
   {userId && token ? (<MsgBoard />) : (null)}
 
-  <div className={styles.searchContainer}>
+  {/* <div className={styles.searchContainer}>
       <h2>- Search Lodestone Character -</h2>
       <input
         type="text"
@@ -65,9 +65,9 @@ const Homepage = () => {
       <button onClick={handleSearch}>Search</button>
      
       
-    </div>
+    </div> */}
 
-    {searchStatus === 'loading' ? (<LoadingSpinner/>) : searchStatus === 'succeeded' && searchData ? (
+       {/* {searchStatus === 'loading' ? (<LoadingSpinner/>) : searchStatus === 'succeeded' && searchData ? (
           <>
           <div className={styles.searchResultsContainer}>
 
@@ -123,6 +123,7 @@ const Homepage = () => {
            
           </>
         ) : (null)}
+         */}
 
 
 
